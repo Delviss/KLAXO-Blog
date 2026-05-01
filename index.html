@@ -164,19 +164,53 @@
 </style></head>
 <body class="bg-surface font-body-md text-on-surface">
 <!-- TopNavBar -->
-<header class="bg-zinc-900 flex justify-between items-center w-full px-6 py-4 sticky top-0 z-50 docked full-width border-b-4 border-orange-500 shadow-2xl">
-<a href="index.html" class="text-2xl font-black italic text-white uppercase font-['Space_Grotesk'] tracking-tighter">
-            Klaxo Travel Tips
-        </a>
-<nav class="hidden md:flex items-center gap-8">
-<a class="text-zinc-400 hover:text-white transition-colors font-['Space_Grotesk'] font-bold tracking-tighter hover:translate-x-1 transition-transform duration-200" href="https://www.klaxo.eu/#rental">Rent a Car</a>
-<a class="text-orange-500 border-b-2 border-orange-500 pb-1 font-['Space_Grotesk'] font-bold tracking-tighter hover:translate-x-1 transition-transform duration-200" href="index.html">Travel Tips</a>
-<a class="text-zinc-400 hover:text-white transition-colors font-['Space_Grotesk'] font-bold tracking-tighter hover:translate-x-1 transition-transform duration-200" href="https://www.klaxo.eu/packages">Destinations</a>
-<a class="text-zinc-400 hover:text-white transition-colors font-['Space_Grotesk'] font-bold tracking-tighter hover:translate-x-1 transition-transform duration-200" href="about.html">About</a>
-</nav>
-<a href="https://www.klaxo.eu/#rental" class="bg-primary-container text-on-primary-container px-6 py-2 rounded font-['Space_Grotesk'] font-bold tracking-tighter uppercase active:scale-95 transition-all btn-premium-transition inline-block">
-            Rent Now
-        </a>
+<header class="bg-white flex justify-between items-center gap-6 w-full px-6 py-3 sticky top-0 z-50 border-b border-zinc-200 shadow-sm">
+<div class="flex items-center gap-6 shrink-0">
+<a href="index.html" class="font-['Space_Grotesk'] tracking-tighter leading-none flex flex-col">
+<span class="text-2xl font-black italic uppercase text-primary-container">Klaxo</span>
+<span class="text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-500 mt-0.5">Travel Tips</span>
+</a>
+<div class="relative group hidden md:block">
+<button class="flex items-center gap-1 text-zinc-800 hover:text-zinc-900 font-['Space_Grotesk'] font-semibold py-2">
+                Discover
+                <span class="material-symbols-outlined text-lg transition-transform group-hover:rotate-180">expand_more</span>
+</button>
+<div class="absolute left-0 top-full pt-3 w-64 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition duration-150">
+<div class="bg-white border border-zinc-200 rounded-xl shadow-xl p-2">
+<a href="index.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-zinc-50">
+<span class="material-symbols-outlined text-primary-container">tips_and_updates</span>
+<span class="font-['Space_Grotesk'] font-semibold text-zinc-800">Travel Tips</span>
+</a>
+<a href="https://www.klaxo.eu/packages" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-zinc-50">
+<span class="material-symbols-outlined text-primary-container">map</span>
+<span class="font-['Space_Grotesk'] font-semibold text-zinc-800">Destinations</span>
+</a>
+<a href="https://www.klaxo.eu/#fleet" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-zinc-50">
+<span class="material-symbols-outlined text-primary-container">explore</span>
+<span class="font-['Space_Grotesk'] font-semibold text-zinc-800">Explore the Fleet</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<form class="hidden md:flex flex-1 max-w-2xl items-center gap-3 bg-white border border-zinc-300 hover:border-zinc-500 focus-within:border-zinc-900 focus-within:shadow-md rounded-full py-3 px-5 transition" role="search">
+<span class="material-symbols-outlined text-zinc-500">search</span>
+<input type="search" placeholder="Search for a place or guide" class="flex-1 bg-transparent outline-none placeholder:text-zinc-500 text-zinc-900 font-['Plus_Jakarta_Sans']" aria-label="Search for a place or guide"/>
+</form>
+<div class="flex items-center gap-1 shrink-0">
+<button class="w-10 h-10 rounded-full hover:bg-zinc-100 flex items-center justify-center transition" aria-label="Change language">
+<span class="material-symbols-outlined text-zinc-700">language</span>
+</button>
+<button class="w-10 h-10 rounded-full hover:bg-zinc-100 flex items-center justify-center transition" aria-label="Saved guides">
+<span class="material-symbols-outlined text-zinc-700">bookmark</span>
+</button>
+<button class="flex items-center gap-2 border border-zinc-300 rounded-full pl-3 pr-1 py-1 ml-1 hover:shadow-md transition" aria-label="Account menu">
+<span class="material-symbols-outlined text-zinc-700 text-lg">menu</span>
+<span class="w-8 h-8 rounded-full bg-zinc-200 flex items-center justify-center">
+<span class="material-symbols-outlined text-zinc-600 text-lg">person</span>
+</span>
+</button>
+</div>
 </header>
 <!-- Scroll Progress Bar -->
 <div class="fixed top-[72px] left-0 w-full h-1 z-40 bg-zinc-800">
