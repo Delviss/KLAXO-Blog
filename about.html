@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<title>About - Klaxo Travel Tips</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#ff8c00",
+                    "on-surface-variant": "#564334",
+                    "outline": "#897362",
+                    "surface": "#fff8f5",
+                    "surface-container-low": "#fff1e9",
+                    "on-background": "#241912",
+                    "outline-variant": "#ddc1ae",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#ffeadd",
+                    "background": "#fff8f5",
+                    "on-surface": "#241912",
+                    "primary": "#904d00",
+                    "on-primary-container": "#623200"
+            },
+            "borderRadius": {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            "spacing": {"container-max": "1280px", "margin-edge": "32px", "gutter": "24px", "section-gap": "120px"},
+            "fontFamily": {
+                    "label-bold": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Space Grotesk"],
+                    "display-xl": ["Space Grotesk"],
+                    "headline-md": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "label-bold": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.7", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "display-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["28px", {"lineHeight": "1.3", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    .speed-line { width: 40px; height: 4px; background: #ff8c00; display: inline-block; margin-right: 8px; position: relative; }
+    .speed-line::before { content: ''; position: absolute; left: -12px; width: 20px; height: 4px; background: rgba(255, 140, 0, 0.4); }
+    .speed-line::after { content: ''; position: absolute; left: -20px; width: 6px; height: 4px; background: rgba(255, 140, 0, 0.2); }
+    @keyframes slideUpFade { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-reveal { animation: slideUpFade 0.8s ease-out forwards; }
+    .btn-premium-transition { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .btn-premium-transition:hover { filter: brightness(1.1); transform: scale(1.02); }
+</style>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-zinc-900 flex justify-between items-center w-full px-6 py-4 sticky top-0 z-50 border-b-4 border-orange-500 shadow-2xl">
+<a href="index.html" class="text-2xl font-black italic text-white uppercase font-['Space_Grotesk'] tracking-tighter">Klaxo Travel Tips</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-zinc-400 hover:text-white transition-colors font-['Space_Grotesk'] font-bold tracking-tighter" href="https://www.klaxo.eu/#rental">Rent a Car</a>
+<a class="text-zinc-400 hover:text-white transition-colors font-['Space_Grotesk'] font-bold tracking-tighter" href="index.html">Travel Tips</a>
+<a class="text-zinc-400 hover:text-white transition-colors font-['Space_Grotesk'] font-bold tracking-tighter" href="https://www.klaxo.eu/packages">Destinations</a>
+<a class="text-orange-500 border-b-2 border-orange-500 pb-1 font-['Space_Grotesk'] font-bold tracking-tighter" href="about.html">About</a>
+</nav>
+<a href="https://www.klaxo.eu/#rental" class="bg-primary-container text-on-primary-container px-6 py-2 rounded font-['Space_Grotesk'] font-bold tracking-tighter uppercase active:scale-95 transition-all btn-premium-transition inline-block">Rent Now</a>
+</header>
+
+<!-- Hero -->
+<section class="relative bg-zinc-900 text-white py-32 px-margin-edge overflow-hidden">
+<div class="max-w-container-max mx-auto relative z-10">
+<div class="inline-block bg-primary-container text-white px-3 py-1 text-label-bold font-label-bold uppercase mb-4">About the Blog</div>
+<h1 class="font-display-xl text-display-xl max-w-4xl animate-reveal">Stories from the road, fueled by Klaxo.</h1>
+<p class="font-body-lg text-body-lg text-white/80 mt-6 max-w-3xl">Klaxo Travel Tips is the official editorial companion to <a href="https://www.klaxo.eu/" class="text-orange-400 underline hover:text-orange-300">klaxo.eu</a> — a curated journal for drivers exploring Europe in style.</p>
+</div>
+<div class="absolute -right-12 -bottom-12 opacity-10">
+<span class="material-symbols-outlined text-[320px] text-primary-container" style="font-variation-settings: 'FILL' 1;">speed</span>
+</div>
+</section>
+
+<!-- Mission -->
+<main class="max-w-container-max mx-auto px-margin-edge py-section-gap grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<article class="lg:col-span-8 space-y-12">
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-6 flex items-center"><span class="speed-line"></span> Our Mission</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-6">Every great trip begins with a great drive. We exist to help travelers across Europe discover hidden roads, smarter routes, and rental experiences worth remembering — all built on the premium Klaxo fleet.</p>
+<p class="font-body-md text-body-md mb-6">From alpine passes in Bavaria to coastal sweeps along the Adriatic, our editors and contributing journalists cover the practical and the inspirational: itineraries, fleet recommendations, border-crossing tips, fuel and EV-charging guides, and the unmissable detours.</p>
+</div>
+
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-6 flex items-center"><span class="speed-line"></span> What You'll Find Here</h2>
+<div class="grid md:grid-cols-2 gap-6">
+<a href="index.html" class="block p-6 bg-surface-container-low rounded-xl border border-outline-variant hover:border-primary-container transition">
+<span class="material-symbols-outlined text-primary-container text-3xl mb-3">tips_and_updates</span>
+<h3 class="font-headline-md text-headline-md mb-2">Travel Tips</h3>
+<p class="text-on-surface-variant text-sm">In-depth guides for the best European driving routes.</p>
+</a>
+<a href="https://www.klaxo.eu/packages" class="block p-6 bg-surface-container-low rounded-xl border border-outline-variant hover:border-primary-container transition">
+<span class="material-symbols-outlined text-primary-container text-3xl mb-3">map</span>
+<h3 class="font-headline-md text-headline-md mb-2">Destinations</h3>
+<p class="text-on-surface-variant text-sm">Curated sightseeing packages from klaxo.eu.</p>
+</a>
+<a href="https://www.klaxo.eu/#rental" class="block p-6 bg-surface-container-low rounded-xl border border-outline-variant hover:border-primary-container transition">
+<span class="material-symbols-outlined text-primary-container text-3xl mb-3">directions_car</span>
+<h3 class="font-headline-md text-headline-md mb-2">Rent a Car</h3>
+<p class="text-on-surface-variant text-sm">Browse the Klaxo premium rental fleet.</p>
+</a>
+<a href="https://www.klaxo.eu/#fleet" class="block p-6 bg-surface-container-low rounded-xl border border-outline-variant hover:border-primary-container transition">
+<span class="material-symbols-outlined text-primary-container text-3xl mb-3">garage</span>
+<h3 class="font-headline-md text-headline-md mb-2">Fleet Guide</h3>
+<p class="text-on-surface-variant text-sm">Compare vehicles for your next adventure.</p>
+</a>
+</div>
+</div>
+
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-6 flex items-center"><span class="speed-line"></span> Editorial Standards</h2>
+<p class="font-body-md text-body-md mb-4">Articles are written by working travel journalists and verified by the Klaxo operations team. Routes are driven before they're recommended, and rental advice reflects the real-world fleet available at <a href="https://www.klaxo.eu/" class="text-primary underline">klaxo.eu</a>.</p>
+</div>
+</article>
+
+<aside class="lg:col-span-4 space-y-gutter">
+<div class="sticky top-28 space-y-gutter">
+<div class="bg-primary-container p-8 rounded-xl text-white">
+<h4 class="font-headline-md text-headline-md mb-3 leading-tight">Ready to drive?</h4>
+<p class="text-white/90 mb-6 text-sm">Reserve your premium rental directly at klaxo.eu.</p>
+<a href="https://www.klaxo.eu/#rental" class="block w-full bg-zinc-900 text-white py-3 rounded text-center font-label-bold text-label-bold uppercase btn-premium-transition">Rent Now</a>
+</div>
+<div class="bg-white border border-outline-variant p-6 rounded-xl">
+<h4 class="font-headline-md text-headline-md mb-3">Get in touch</h4>
+<p class="text-on-surface-variant text-sm mb-4">Editorial pitches, partnerships, or press enquiries.</p>
+<a href="mailto:info@klaxo.eu" class="text-primary font-bold underline">info@klaxo.eu</a>
+</div>
+</div>
+</aside>
+</main>
+
+<!-- Footer -->
+<footer class="bg-zinc-950 pt-16 pb-8 border-t-8 border-zinc-900">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto px-8 font-['Space_Grotesk'] text-sm tracking-wide">
+<div>
+<a href="https://www.klaxo.eu/" class="text-3xl font-black text-orange-500 uppercase mb-4 inline-block">Klaxo</a>
+<p class="text-zinc-400 text-xs mb-4">A backlink blog by <a href="https://www.klaxo.eu/" class="text-orange-400 hover:underline">klaxo.eu</a></p>
+<p class="text-zinc-500 max-w-xs leading-relaxed">Defining the next generation of premium car rentals and travel experiences across Europe.</p>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6 uppercase tracking-widest">Navigation</h5>
+<ul class="space-y-4">
+<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="https://www.klaxo.eu/#rental">Rent a Car</a></li>
+<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="https://www.klaxo.eu/packages">Destinations</a></li>
+<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="https://www.klaxo.eu/#fleet">Fleet Guide</a></li>
+<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="index.html">Blog</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6 uppercase tracking-widest">Support</h5>
+<ul class="space-y-4">
+<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="https://www.klaxo.eu/privacy">Privacy Policy</a></li>
+<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="https://www.klaxo.eu/terms">Terms of Service</a></li>
+<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="https://www.klaxo.eu/contact">Help Center</a></li>
+<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="https://www.klaxo.eu/#newsletter">Newsletter Signup</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6 uppercase tracking-widest">Contact</h5>
+<p class="text-zinc-500 mb-4 italic">Driven by Adventure.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded bg-zinc-900 flex items-center justify-center text-white hover:bg-orange-500 transition-colors" href="https://www.klaxo.eu/contact" aria-label="Contact Klaxo">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+<a class="w-10 h-10 rounded bg-zinc-900 flex items-center justify-center text-white hover:bg-orange-500 transition-colors" href="mailto:info@klaxo.eu" aria-label="Email Klaxo">
+<span class="material-symbols-outlined text-sm">mail</span>
+</a>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-zinc-900 text-center text-zinc-500">
+© 2024 Klaxo Car Rentals. Driven by Adventure.
+</div>
+</footer>
+</body></html>
