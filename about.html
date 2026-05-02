@@ -61,90 +61,107 @@
 </head>
 <body class="bg-surface font-body-md text-on-surface">
 <!-- TopNavBar -->
-<header class="bg-zinc-900 flex justify-between items-center w-full px-6 py-4 sticky top-0 z-50 border-b-4 border-orange-500 shadow-2xl">
-<a href="index.html" class="text-2xl font-black italic text-white uppercase font-['Space_Grotesk'] tracking-tighter">Klaxo Travel Tips</a>
-<nav class="hidden md:flex items-center gap-8">
+<header class="bg-zinc-900 w-full sticky top-0 z-50 shadow-2xl">
+<div class="flex justify-between items-center w-full px-4 sm:px-6 py-3 sm:py-4 border-b-4 border-orange-500 gap-3">
+<a href="index.html" class="text-lg sm:text-xl md:text-2xl font-black italic text-white uppercase font-['Space_Grotesk'] tracking-tighter shrink-0">Klaxo Travel Tips</a>
+<nav class="hidden md:flex items-center gap-6 lg:gap-8">
 <a class="text-zinc-400 hover:text-white transition-colors font-['Space_Grotesk'] font-bold tracking-tighter" href="https://www.klaxo.eu/#rental">Rent a Car</a>
 <a class="text-zinc-400 hover:text-white transition-colors font-['Space_Grotesk'] font-bold tracking-tighter" href="index.html">Travel Tips</a>
 <a class="text-zinc-400 hover:text-white transition-colors font-['Space_Grotesk'] font-bold tracking-tighter" href="https://www.klaxo.eu/packages">Destinations</a>
 <a class="text-orange-500 border-b-2 border-orange-500 pb-1 font-['Space_Grotesk'] font-bold tracking-tighter" href="about.html">About</a>
 </nav>
-<a href="https://www.klaxo.eu/#rental" class="bg-primary-container text-on-primary-container px-6 py-2 rounded font-['Space_Grotesk'] font-bold tracking-tighter uppercase active:scale-95 transition-all btn-premium-transition inline-block">Rent Now</a>
+<div class="flex items-center gap-2 sm:gap-3 shrink-0">
+<a href="https://www.klaxo.eu/#rental" class="hidden sm:inline-block bg-primary-container text-on-primary-container px-4 sm:px-6 py-2 rounded font-['Space_Grotesk'] font-bold tracking-tighter uppercase text-sm sm:text-base active:scale-95 transition-all btn-premium-transition">Rent Now</a>
+<button id="mobile-menu-btn" class="md:hidden text-white p-1.5 rounded hover:bg-zinc-800 transition-colors" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu" type="button">
+<span id="mobile-menu-icon" class="material-symbols-outlined text-3xl block">menu</span>
+</button>
+</div>
+</div>
+<!-- Mobile menu -->
+<div id="mobile-menu" class="hidden md:hidden bg-zinc-900 border-b-4 border-orange-500 shadow-2xl">
+<nav class="flex flex-col p-4 gap-1">
+<a class="text-zinc-300 hover:text-orange-500 hover:bg-zinc-800 transition-colors font-['Space_Grotesk'] font-bold tracking-tighter uppercase px-4 py-3 rounded flex items-center gap-3" href="https://www.klaxo.eu/#rental"><span class="material-symbols-outlined text-orange-500">directions_car</span>Rent a Car</a>
+<a class="text-zinc-300 hover:text-orange-500 hover:bg-zinc-800 transition-colors font-['Space_Grotesk'] font-bold tracking-tighter uppercase px-4 py-3 rounded flex items-center gap-3" href="index.html"><span class="material-symbols-outlined text-orange-500">tips_and_updates</span>Travel Tips</a>
+<a class="text-zinc-300 hover:text-orange-500 hover:bg-zinc-800 transition-colors font-['Space_Grotesk'] font-bold tracking-tighter uppercase px-4 py-3 rounded flex items-center gap-3" href="https://www.klaxo.eu/packages"><span class="material-symbols-outlined text-orange-500">map</span>Destinations</a>
+<a class="text-orange-500 bg-zinc-800 font-['Space_Grotesk'] font-bold tracking-tighter uppercase px-4 py-3 rounded flex items-center gap-3" href="about.html"><span class="material-symbols-outlined text-orange-500">info</span>About</a>
+<a class="sm:hidden mt-2 bg-primary-container text-white text-center font-['Space_Grotesk'] font-bold tracking-tighter uppercase px-4 py-3 rounded btn-premium-transition" href="https://www.klaxo.eu/#rental">Rent Now</a>
+</nav>
+</div>
 </header>
 
 <!-- Hero -->
-<section class="relative bg-zinc-900 text-white py-32 px-margin-edge overflow-hidden">
+<section class="relative bg-zinc-900 text-white py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 md:px-margin-edge overflow-hidden">
 <div class="max-w-container-max mx-auto relative z-10">
-<div class="inline-block bg-primary-container text-white px-3 py-1 text-label-bold font-label-bold uppercase mb-4">About the Blog</div>
-<h1 class="font-display-xl text-display-xl max-w-4xl animate-reveal">Stories from the road, fueled by Klaxo.</h1>
-<p class="font-body-lg text-body-lg text-white/80 mt-6 max-w-3xl">Klaxo Travel Tips is the official editorial companion to <a href="https://www.klaxo.eu/" class="text-orange-400 underline hover:text-orange-300">klaxo.eu</a> — a curated journal for drivers exploring Europe in style.</p>
+<div class="inline-block bg-primary-container text-white px-3 py-1 text-label-bold font-label-bold uppercase mb-3 sm:mb-4">About the Blog</div>
+<h1 class="font-display-xl text-3xl sm:text-4xl md:text-5xl lg:text-display-xl leading-tight max-w-4xl animate-reveal">Stories from the road, fueled by Klaxo.</h1>
+<p class="font-body-lg text-base sm:text-body-lg text-white/80 mt-4 sm:mt-6 max-w-3xl">Klaxo Travel Tips is the official editorial companion to <a href="https://www.klaxo.eu/" class="text-orange-400 underline hover:text-orange-300">klaxo.eu</a> — a curated journal for drivers exploring Europe in style.</p>
 </div>
-<div class="absolute -right-12 -bottom-12 opacity-10">
-<span class="material-symbols-outlined text-[320px] text-primary-container" style="font-variation-settings: 'FILL' 1;">speed</span>
+<div class="absolute -right-12 -bottom-12 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[180px] sm:text-[240px] md:text-[320px] text-primary-container" style="font-variation-settings: 'FILL' 1;">speed</span>
 </div>
 </section>
 
 <!-- Mission -->
-<main class="max-w-container-max mx-auto px-margin-edge py-section-gap grid grid-cols-1 lg:grid-cols-12 gap-gutter">
-<article class="lg:col-span-8 space-y-12">
+<main class="max-w-container-max mx-auto px-4 sm:px-6 md:px-margin-edge py-12 sm:py-16 md:py-24 lg:py-section-gap grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-gutter">
+<article class="lg:col-span-8 space-y-10 sm:space-y-12">
 <div>
-<h2 class="font-headline-lg text-headline-lg mb-6 flex items-center"><span class="speed-line"></span> Our Mission</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-6">Every great trip begins with a great drive. We exist to help travelers across Europe discover hidden roads, smarter routes, and rental experiences worth remembering — all built on the premium Klaxo fleet.</p>
+<h2 class="font-headline-lg text-2xl sm:text-3xl md:text-headline-lg leading-tight mb-4 sm:mb-6 flex items-center"><span class="speed-line"></span> Our Mission</h2>
+<p class="font-body-lg text-base sm:text-body-lg text-on-surface-variant leading-relaxed mb-4 sm:mb-6">Every great trip begins with a great drive. We exist to help travelers across Europe discover hidden roads, smarter routes, and rental experiences worth remembering — all built on the premium Klaxo fleet.</p>
 <p class="font-body-md text-body-md mb-6">From alpine passes in Bavaria to coastal sweeps along the Adriatic, our editors and contributing journalists cover the practical and the inspirational: itineraries, fleet recommendations, border-crossing tips, fuel and EV-charging guides, and the unmissable detours.</p>
 </div>
 
 <div>
-<h2 class="font-headline-lg text-headline-lg mb-6 flex items-center"><span class="speed-line"></span> What You'll Find Here</h2>
-<div class="grid md:grid-cols-2 gap-6">
-<a href="index.html" class="block p-6 bg-surface-container-low rounded-xl border border-outline-variant hover:border-primary-container transition">
+<h2 class="font-headline-lg text-2xl sm:text-3xl md:text-headline-lg leading-tight mb-4 sm:mb-6 flex items-center"><span class="speed-line"></span> What You'll Find Here</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+<a href="index.html" class="block p-5 sm:p-6 bg-surface-container-low rounded-xl border border-outline-variant hover:border-primary-container transition">
 <span class="material-symbols-outlined text-primary-container text-3xl mb-3">tips_and_updates</span>
-<h3 class="font-headline-md text-headline-md mb-2">Travel Tips</h3>
+<h3 class="font-headline-md text-lg sm:text-xl md:text-headline-md mb-2">Travel Tips</h3>
 <p class="text-on-surface-variant text-sm">In-depth guides for the best European driving routes.</p>
 </a>
-<a href="https://www.klaxo.eu/packages" class="block p-6 bg-surface-container-low rounded-xl border border-outline-variant hover:border-primary-container transition">
+<a href="https://www.klaxo.eu/packages" class="block p-5 sm:p-6 bg-surface-container-low rounded-xl border border-outline-variant hover:border-primary-container transition">
 <span class="material-symbols-outlined text-primary-container text-3xl mb-3">map</span>
-<h3 class="font-headline-md text-headline-md mb-2">Destinations</h3>
+<h3 class="font-headline-md text-lg sm:text-xl md:text-headline-md mb-2">Destinations</h3>
 <p class="text-on-surface-variant text-sm">Curated sightseeing packages from klaxo.eu.</p>
 </a>
-<a href="https://www.klaxo.eu/#rental" class="block p-6 bg-surface-container-low rounded-xl border border-outline-variant hover:border-primary-container transition">
+<a href="https://www.klaxo.eu/#rental" class="block p-5 sm:p-6 bg-surface-container-low rounded-xl border border-outline-variant hover:border-primary-container transition">
 <span class="material-symbols-outlined text-primary-container text-3xl mb-3">directions_car</span>
-<h3 class="font-headline-md text-headline-md mb-2">Rent a Car</h3>
+<h3 class="font-headline-md text-lg sm:text-xl md:text-headline-md mb-2">Rent a Car</h3>
 <p class="text-on-surface-variant text-sm">Browse the Klaxo premium rental fleet.</p>
 </a>
-<a href="https://www.klaxo.eu/#fleet" class="block p-6 bg-surface-container-low rounded-xl border border-outline-variant hover:border-primary-container transition">
+<a href="https://www.klaxo.eu/#fleet" class="block p-5 sm:p-6 bg-surface-container-low rounded-xl border border-outline-variant hover:border-primary-container transition">
 <span class="material-symbols-outlined text-primary-container text-3xl mb-3">garage</span>
-<h3 class="font-headline-md text-headline-md mb-2">Fleet Guide</h3>
+<h3 class="font-headline-md text-lg sm:text-xl md:text-headline-md mb-2">Fleet Guide</h3>
 <p class="text-on-surface-variant text-sm">Compare vehicles for your next adventure.</p>
 </a>
 </div>
 </div>
 
 <div>
-<h2 class="font-headline-lg text-headline-lg mb-6 flex items-center"><span class="speed-line"></span> Editorial Standards</h2>
+<h2 class="font-headline-lg text-2xl sm:text-3xl md:text-headline-lg leading-tight mb-4 sm:mb-6 flex items-center"><span class="speed-line"></span> Editorial Standards</h2>
 <p class="font-body-md text-body-md mb-4">Articles are written by working travel journalists and verified by the Klaxo operations team. Routes are driven before they're recommended, and rental advice reflects the real-world fleet available at <a href="https://www.klaxo.eu/" class="text-primary underline">klaxo.eu</a>.</p>
 </div>
 </article>
 
-<aside class="lg:col-span-4 space-y-gutter">
-<div class="sticky top-28 space-y-gutter">
-<div class="bg-primary-container p-8 rounded-xl text-white">
-<h4 class="font-headline-md text-headline-md mb-3 leading-tight">Ready to drive?</h4>
-<p class="text-white/90 mb-6 text-sm">Reserve your premium rental directly at klaxo.eu.</p>
+<aside class="lg:col-span-4 space-y-6 lg:space-y-gutter">
+<div class="lg:sticky lg:top-28 space-y-6 lg:space-y-gutter">
+<div class="bg-primary-container p-6 sm:p-8 rounded-xl text-white">
+<h4 class="font-headline-md text-xl sm:text-2xl md:text-headline-md mb-3 leading-tight">Ready to drive?</h4>
+<p class="text-white/90 mb-5 sm:mb-6 text-sm sm:text-base">Reserve your premium rental directly at klaxo.eu.</p>
 <a href="https://www.klaxo.eu/#rental" class="block w-full bg-zinc-900 text-white py-3 rounded text-center font-label-bold text-label-bold uppercase btn-premium-transition">Rent Now</a>
 </div>
-<div class="bg-white border border-outline-variant p-6 rounded-xl">
-<h4 class="font-headline-md text-headline-md mb-3">Get in touch</h4>
+<div class="bg-white border border-outline-variant p-5 sm:p-6 rounded-xl">
+<h4 class="font-headline-md text-xl sm:text-2xl md:text-headline-md mb-3">Get in touch</h4>
 <p class="text-on-surface-variant text-sm mb-4">Editorial pitches, partnerships, or press enquiries.</p>
-<a href="mailto:info@klaxo.eu" class="text-primary font-bold underline">info@klaxo.eu</a>
+<a href="mailto:info@klaxo.eu" class="text-primary font-bold underline break-all">info@klaxo.eu</a>
 </div>
 </div>
 </aside>
 </main>
 
 <!-- Footer -->
-<footer class="bg-zinc-950 mt-16 w-full pt-16 pb-6 border-t-8 border-zinc-900 rounded-t-xl">
-<div class="mx-auto max-w-7xl px-8">
-<div class="grid grid-cols-1 gap-12 lg:grid-cols-3">
+<footer class="bg-zinc-950 mt-12 sm:mt-16 w-full pt-10 sm:pt-16 pb-6 border-t-8 border-zinc-900 rounded-t-xl">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+<div class="grid grid-cols-1 gap-10 sm:gap-12 lg:grid-cols-3">
 <!-- Brand block -->
 <div>
 <div class="flex justify-center gap-3 sm:justify-start items-center">
@@ -179,7 +196,7 @@
 </div>
 
 <!-- Right 4-column grid -->
-<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2 font-['Space_Grotesk'] text-sm tracking-wide">
+<div class="grid grid-cols-2 gap-6 sm:gap-8 md:grid-cols-4 lg:col-span-2 font-['Space_Grotesk'] text-sm tracking-wide">
 <div class="text-center sm:text-left">
 <p class="text-white font-bold uppercase tracking-widest text-sm mb-6">Navigation</p>
 <ul class="space-y-4">
@@ -250,4 +267,25 @@
 </div>
 </div>
 </footer>
+<script>
+  (function () {
+    var btn = document.getElementById('mobile-menu-btn');
+    var menu = document.getElementById('mobile-menu');
+    var icon = document.getElementById('mobile-menu-icon');
+    if (!btn || !menu || !icon) return;
+    btn.addEventListener('click', function () {
+      var willOpen = menu.classList.contains('hidden');
+      menu.classList.toggle('hidden');
+      btn.setAttribute('aria-expanded', String(willOpen));
+      icon.textContent = willOpen ? 'close' : 'menu';
+    });
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+        icon.textContent = 'menu';
+      });
+    });
+  })();
+</script>
 </body></html>
