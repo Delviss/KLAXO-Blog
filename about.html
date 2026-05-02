@@ -61,31 +61,109 @@
 </head>
 <body class="bg-surface font-body-md text-on-surface">
 <!-- TopNavBar -->
-<header class="bg-zinc-900 w-full sticky top-0 z-50 shadow-2xl">
-<div class="flex justify-between items-center w-full px-4 sm:px-6 py-3 sm:py-4 border-b-4 border-orange-500 gap-3">
-<a href="index.html" class="text-lg sm:text-xl md:text-2xl font-black italic text-white uppercase font-['Space_Grotesk'] tracking-tighter shrink-0">Klaxo Travel Tips</a>
-<nav class="hidden md:flex items-center gap-6 lg:gap-8">
-<a class="text-zinc-400 hover:text-white transition-colors font-['Space_Grotesk'] font-bold tracking-tighter" href="https://www.klaxo.eu/#rental">Rent a Car</a>
-<a class="text-zinc-400 hover:text-white transition-colors font-['Space_Grotesk'] font-bold tracking-tighter" href="index.html">Travel Tips</a>
-<a class="text-zinc-400 hover:text-white transition-colors font-['Space_Grotesk'] font-bold tracking-tighter" href="https://www.klaxo.eu/packages">Destinations</a>
-<a class="text-orange-500 border-b-2 border-orange-500 pb-1 font-['Space_Grotesk'] font-bold tracking-tighter" href="about.html">About</a>
-</nav>
-<div class="flex items-center gap-2 sm:gap-3 shrink-0">
-<a href="https://www.klaxo.eu/#rental" class="hidden sm:inline-block bg-primary-container text-on-primary-container px-4 sm:px-6 py-2 rounded font-['Space_Grotesk'] font-bold tracking-tighter uppercase text-sm sm:text-base active:scale-95 transition-all btn-premium-transition">Rent Now</a>
-<button id="mobile-menu-btn" class="md:hidden text-white p-1.5 rounded hover:bg-zinc-800 transition-colors" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu" type="button">
-<span id="mobile-menu-icon" class="material-symbols-outlined text-3xl block">menu</span>
+<header class="bg-white w-full sticky top-0 z-50 border-b border-zinc-200 shadow-sm">
+<div class="flex justify-between items-center gap-3 sm:gap-6 w-full px-4 sm:px-6 py-3">
+<div class="flex items-center gap-4 lg:gap-6 shrink-0">
+<a href="index.html" class="font-['Space_Grotesk'] tracking-tighter leading-none flex flex-col">
+<span class="text-xl sm:text-2xl font-black italic uppercase text-primary-container">Klaxo</span>
+<span class="text-[9px] sm:text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-500 mt-0.5">Travel Tips</span>
+</a>
+<div class="relative group hidden md:block">
+<button class="flex items-center gap-1 text-zinc-800 hover:text-zinc-900 font-['Space_Grotesk'] font-semibold py-2" type="button">
+                Discover
+                <span class="material-symbols-outlined text-lg transition-transform group-hover:rotate-180">expand_more</span>
+</button>
+<div class="absolute left-0 top-full pt-3 w-64 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition duration-150">
+<div class="bg-white border border-zinc-200 rounded-xl shadow-xl p-2">
+<a href="index.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-zinc-50">
+<span class="material-symbols-outlined text-primary-container">tips_and_updates</span>
+<span class="font-['Space_Grotesk'] font-semibold text-zinc-800">Travel Tips</span>
+</a>
+<a href="https://www.klaxo.eu/packages" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-zinc-50">
+<span class="material-symbols-outlined text-primary-container">map</span>
+<span class="font-['Space_Grotesk'] font-semibold text-zinc-800">Destinations</span>
+</a>
+<a href="https://www.klaxo.eu/#fleet" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-zinc-50">
+<span class="material-symbols-outlined text-primary-container">explore</span>
+<span class="font-['Space_Grotesk'] font-semibold text-zinc-800">Explore the Fleet</span>
+</a>
+<a href="about.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-zinc-50">
+<span class="material-symbols-outlined text-primary-container">info</span>
+<span class="font-['Space_Grotesk'] font-semibold text-zinc-800">About</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<form class="hidden md:flex flex-1 max-w-2xl items-center gap-3 bg-white border border-zinc-300 hover:border-zinc-500 focus-within:border-zinc-900 focus-within:shadow-md rounded-full py-3 px-5 transition" role="search">
+<span class="material-symbols-outlined text-zinc-500">search</span>
+<input type="search" placeholder="Search for a place or guide" class="flex-1 bg-transparent outline-none placeholder:text-zinc-500 text-zinc-900 font-['Plus_Jakarta_Sans']" aria-label="Search for a place or guide"/>
+</form>
+<div class="flex items-center gap-1 shrink-0">
+<button class="hidden md:flex w-10 h-10 rounded-full hover:bg-zinc-100 items-center justify-center transition" aria-label="Change language" type="button">
+<span class="material-symbols-outlined text-zinc-700">language</span>
+</button>
+<button class="hidden md:flex w-10 h-10 rounded-full hover:bg-zinc-100 items-center justify-center transition" aria-label="Saved guides" type="button">
+<span class="material-symbols-outlined text-zinc-700">bookmark</span>
+</button>
+<button class="hidden md:flex items-center gap-2 border border-zinc-300 rounded-full pl-3 pr-1 py-1 ml-1 hover:shadow-md transition" aria-label="Account menu" type="button">
+<span class="material-symbols-outlined text-zinc-700 text-lg">menu</span>
+<span class="w-8 h-8 rounded-full bg-zinc-200 flex items-center justify-center">
+<span class="material-symbols-outlined text-zinc-600 text-lg">person</span>
+</span>
+</button>
+<button id="mobile-menu-btn" class="md:hidden flex items-center gap-2 border border-zinc-300 rounded-full pl-3 pr-1 py-1 hover:shadow-md transition" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu" type="button">
+<span id="mobile-menu-icon" class="material-symbols-outlined text-zinc-700 text-lg">menu</span>
+<span class="w-8 h-8 rounded-full bg-zinc-200 flex items-center justify-center">
+<span class="material-symbols-outlined text-zinc-600 text-lg">person</span>
+</span>
 </button>
 </div>
 </div>
-<!-- Mobile menu -->
-<div id="mobile-menu" class="hidden md:hidden bg-zinc-900 border-b-4 border-orange-500 shadow-2xl">
-<nav class="flex flex-col p-4 gap-1">
-<a class="text-zinc-300 hover:text-orange-500 hover:bg-zinc-800 transition-colors font-['Space_Grotesk'] font-bold tracking-tighter uppercase px-4 py-3 rounded flex items-center gap-3" href="https://www.klaxo.eu/#rental"><span class="material-symbols-outlined text-orange-500">directions_car</span>Rent a Car</a>
-<a class="text-zinc-300 hover:text-orange-500 hover:bg-zinc-800 transition-colors font-['Space_Grotesk'] font-bold tracking-tighter uppercase px-4 py-3 rounded flex items-center gap-3" href="index.html"><span class="material-symbols-outlined text-orange-500">tips_and_updates</span>Travel Tips</a>
-<a class="text-zinc-300 hover:text-orange-500 hover:bg-zinc-800 transition-colors font-['Space_Grotesk'] font-bold tracking-tighter uppercase px-4 py-3 rounded flex items-center gap-3" href="https://www.klaxo.eu/packages"><span class="material-symbols-outlined text-orange-500">map</span>Destinations</a>
-<a class="text-orange-500 bg-zinc-800 font-['Space_Grotesk'] font-bold tracking-tighter uppercase px-4 py-3 rounded flex items-center gap-3" href="about.html"><span class="material-symbols-outlined text-orange-500">info</span>About</a>
-<a class="sm:hidden mt-2 bg-primary-container text-white text-center font-['Space_Grotesk'] font-bold tracking-tighter uppercase px-4 py-3 rounded btn-premium-transition" href="https://www.klaxo.eu/#rental">Rent Now</a>
+<!-- Mobile menu drawer -->
+<div id="mobile-menu" class="hidden md:hidden bg-white border-t border-zinc-200 shadow-lg max-h-[calc(100vh-72px)] overflow-y-auto">
+<div class="p-4 space-y-3">
+<form role="search" class="flex items-center gap-3 bg-white border border-zinc-300 focus-within:border-zinc-900 focus-within:shadow-md rounded-full py-2.5 px-4 transition">
+<span class="material-symbols-outlined text-zinc-500">search</span>
+<input type="search" placeholder="Search for a place or guide" class="flex-1 bg-transparent outline-none placeholder:text-zinc-500 text-zinc-900 font-['Plus_Jakarta_Sans']" aria-label="Search"/>
+</form>
+<nav class="flex flex-col">
+<p class="text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-500 px-3 pt-2 pb-1">Discover</p>
+<a href="index.html" class="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-zinc-50 active:bg-zinc-100">
+<span class="material-symbols-outlined text-primary-container">tips_and_updates</span>
+<span class="font-['Space_Grotesk'] font-semibold text-zinc-800">Travel Tips</span>
+</a>
+<a href="https://www.klaxo.eu/packages" class="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-zinc-50 active:bg-zinc-100">
+<span class="material-symbols-outlined text-primary-container">map</span>
+<span class="font-['Space_Grotesk'] font-semibold text-zinc-800">Destinations</span>
+</a>
+<a href="https://www.klaxo.eu/#fleet" class="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-zinc-50 active:bg-zinc-100">
+<span class="material-symbols-outlined text-primary-container">explore</span>
+<span class="font-['Space_Grotesk'] font-semibold text-zinc-800">Explore the Fleet</span>
+</a>
+<a href="about.html" class="flex items-center gap-3 px-3 py-3 rounded-lg bg-zinc-50">
+<span class="material-symbols-outlined text-primary-container">info</span>
+<span class="font-['Space_Grotesk'] font-semibold text-zinc-800">About</span>
+</a>
 </nav>
+<div class="border-t border-zinc-200 pt-3 grid grid-cols-3 gap-2">
+<button class="flex flex-col items-center gap-1 py-2 rounded-lg hover:bg-zinc-100 text-zinc-700 transition" aria-label="Change language" type="button">
+<span class="material-symbols-outlined">language</span>
+<span class="text-[11px] font-semibold font-['Space_Grotesk']">Language</span>
+</button>
+<button class="flex flex-col items-center gap-1 py-2 rounded-lg hover:bg-zinc-100 text-zinc-700 transition" aria-label="Saved guides" type="button">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="text-[11px] font-semibold font-['Space_Grotesk']">Saved</span>
+</button>
+<button class="flex flex-col items-center gap-1 py-2 rounded-lg hover:bg-zinc-100 text-zinc-700 transition" aria-label="Account" type="button">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[11px] font-semibold font-['Space_Grotesk']">Account</span>
+</button>
+</div>
+<a href="https://www.klaxo.eu/#rental" class="block w-full text-center bg-primary-container text-white font-['Space_Grotesk'] font-bold tracking-tighter uppercase px-4 py-3 rounded-full btn-premium-transition">
+                    Rent Now
+                </a>
+</div>
 </div>
 </header>
 
