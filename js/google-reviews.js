@@ -12,43 +12,96 @@
  *  below — the rating, the review count, the Google links and the
  *  reviews themselves. No other file needs changing.
  *
- *  NOTE: the reviews below are SAMPLE placeholders. Replace them with
- *  your real Google reviews (copy the name, relative date, star count
- *  and text from your Google Business profile).
+ *  The reviews below are real 5-star Google reviews from the
+ *  Klaxo GmbH | Rent a car Munich listing on Google Maps.
  */
 (function () {
   'use strict';
 
+  var MAPS_REVIEWS_URL =
+    'https://www.google.com/maps/place/Klaxo+GmbH+%7C+Rent+a+car+Munich/@48.1262518,11.5432904,17z/' +
+    'data=!4m8!3m7!1s0x479dd98ae9760897:0x15cb5ebec6fbb3e9!8m2!3d48.1262518!4d11.5432904!9m1!1b1!16s%2Fg%2F11s2qc8xpy';
+
   var KLAXO_REVIEWS_CONFIG = {
     businessName: 'Klaxo Car Rentals',
     rating: 5.0,          // overall rating shown on the badge and panel
-    reviewCount: 11,      // total number of Google reviews
-    // Link opened by "View on Google" / the review count.
-    // Tip: replace with your Google Business profile share link
-    // (Google Business Profile > Share) or a maps place URL.
-    placeUrl: 'https://www.google.com/maps/search/?api=1&query=Klaxo+Car+Rental+Munich',
-    // Link opened by "Review us on Google".
-    // Tip: replace with https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID
-    writeReviewUrl: 'https://www.google.com/maps/search/?api=1&query=Klaxo+Car+Rental+Munich',
-    // SAMPLE reviews — replace with your real ones.
+    reviewCount: 121,     // total number of Google reviews
+    // Every clickable element in the panel points to the Klaxo
+    // reviews page on Google Maps.
+    placeUrl: MAPS_REVIEWS_URL,
+    writeReviewUrl: MAPS_REVIEWS_URL,
     reviews: [
       {
-        name: 'Sample Customer',
-        date: '2 weeks ago',
+        name: 'Carmela Fiore',
+        date: '4 weeks ago',
         rating: 5,
-        text: 'Replace this sample entry with a real review from your Google Business profile. Fantastic service from pickup to drop-off — the car was spotless and the team was incredibly helpful.'
+        text: 'We rented a car from Saturday, May 30th to Sunday, May 31st. There were four of us, two couples. We wanted to emphasize Mr. Max’s kindness, professionalism, and helpfulness.'
       },
       {
-        name: 'Another Customer',
-        date: '1 month ago',
+        name: 'Bledion Kelmendi',
+        date: '4 months ago',
         rating: 5,
-        text: 'Replace this sample entry with a real review. Booked a V-Class for a group trip to the Alps — smooth process, fair pricing and a beautifully maintained vehicle.'
+        text: 'Rented a car from Klaxo in Munich and had a smooth experience from start to finish. Alex was very friendly, easy to deal with, and explained everything clearly. The car was well maintained, and drove perfectly the whole time. Pickup and return were quick and uncomplicated. Would definitely rent from them again.'
       },
       {
-        name: 'Third Customer',
-        date: '2 months ago',
+        name: 'Manuel Porta',
+        date: '4 months ago',
         rating: 5,
-        text: 'Replace this sample entry with a real review. Quick handover at Munich, friendly staff and great recommendations for day trips. Will rent again.'
+        text: 'We booked one of Klaxo’s sightseeing packages and couldn’t be happier having done so. Great service, punctuality, comfortable vehicle and good knowledge.'
+      },
+      {
+        name: 'Ran Gil',
+        date: '6 months ago',
+        rating: 5,
+        text: 'Super recommended! We had a great experience with Klaxo. The team is nice and communicative. The car was good.'
+      },
+      {
+        name: 'Joanna Grabka',
+        date: '6 months ago',
+        rating: 5,
+        text: 'Amazing service, very friendly and professional staff. I highly recommend'
+      },
+      {
+        name: 'Laila',
+        date: '7 months ago',
+        rating: 5,
+        text: 'My experience with renting through Klaxo was smooth and seamless. Alex was the agent who helped me and he was extremely friendly and hospitable. I would definitely go through them again'
+      },
+      {
+        name: 'Rami Dehen',
+        date: '8 months ago',
+        rating: 5,
+        text: 'I recently rented a Mercedes C-Class from Klaxo Car Rental in Munich and was extremely impressed with their service. The entire process was smooth, and their team was very professional and responsive. What I really appreciated is their flexibility—they delivered the car right to my location, which made everything so convenient. They also offer a wide range of luxury vans, which is perfect for families or group travel. The quality of vehicles and level of customer care exceeded my expectations. I highly recommend Klaxo for anyone looking for premium rental options in Munich with excellent support.'
+      },
+      {
+        name: 'Robert Radway',
+        date: '11 months ago',
+        rating: 5,
+        text: 'Alex was very professional, punctual and great person to talk to while driving us back to Munich. I would highly recommend Alex because he put the day at ease so you can enjoy your trip. He was a very safe driver :)'
+      },
+      {
+        name: 'Debra Pond',
+        date: '11 months ago',
+        rating: 5,
+        text: 'We had the most brilliant day with our driver Alex. He went out of his way to make our trip from Munich to Berchtesgarden very special. He shared his knowledge and took us to places where the views and food were wonderful.'
+      },
+      {
+        name: 'Juan Pablo Ramírez Abdo',
+        date: 'a year ago',
+        rating: 5,
+        text: 'The tour was amazing and Nikolai the driver was more than exceptional. He was fabulous. I have never had a private driver tour before, but I will definitely do it again in hopes that I get another driver like Nikolai.'
+      },
+      {
+        name: 'Maximilian Schwan',
+        date: '2 years ago',
+        rating: 5,
+        text: 'Wow! I have requested 4 Mercedes V-Class only 20 hours in advance. Every other rental immediately cancelled, but Klaxo were happy to welcome me. I couldn´t believe it! The cars we´re delivered to my hotel in the city center and the staff was really friendly. I highly recommend.'
+      },
+      {
+        name: 'Cathia',
+        date: '3 years ago',
+        rating: 5,
+        text: 'Had a very positive experience with Klaxo. They didn’t have the car we had picked originally available so they upgraded us for free with a bigger vehicule. Service was good and friendly. The car we had was super clean, very safe and comfortable !'
       }
     ]
   };
@@ -130,7 +183,9 @@
     '.krw-write-link{display:inline-block;margin-top:12px;font-size:13px;color:#1a73e8;text-decoration:none;font-weight:600;}' +
     '.krw-write-link:hover{text-decoration:underline;}' +
     '.krw-list{flex:1;overflow-y:auto;padding:8px 20px 20px;}' +
-    '.krw-review{padding:16px 0;border-bottom:1px solid #f1f3f4;}' +
+    '.krw-review{display:block;padding:16px 8px;border-bottom:1px solid #f1f3f4;text-decoration:none;color:inherit;' +
+    'border-radius:10px;transition:background .15s ease;}' +
+    '.krw-review:hover{background:#f8f9fa;}' +
     '.krw-review:last-child{border-bottom:none;}' +
     '.krw-review-head{display:flex;align-items:center;gap:10px;}' +
     '.krw-avatar{width:38px;height:38px;border-radius:50%;background:#ff8c00;color:#fff;display:flex;align-items:center;' +
@@ -162,7 +217,8 @@
     var ratingLabel = cfg.rating.toFixed(1);
     var reviewsHtml = cfg.reviews.map(function (r) {
       return (
-        '<article class="krw-review">' +
+        '<a class="krw-review" href="' + cfg.placeUrl + '" target="_blank" rel="noopener" ' +
+          'aria-label="Read this review by ' + escapeHtml(r.name) + ' on Google Maps">' +
           '<div class="krw-review-head">' +
             '<span class="krw-avatar" aria-hidden="true">' + escapeHtml(initialOf(r.name)) + '</span>' +
             '<div>' +
@@ -172,7 +228,7 @@
           '</div>' +
           starsHtml(r.rating) +
           '<p class="krw-review-text">&ldquo;' + escapeHtml(r.text) + '&rdquo;</p>' +
-        '</article>'
+        '</a>'
       );
     }).join('');
 
