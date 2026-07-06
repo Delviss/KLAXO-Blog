@@ -1,298 +1,652 @@
 <!DOCTYPE html>
-
-<html class="light" lang="en"><head>
+<html class="light" lang="en">
+<head>
 <meta charset="utf-8"/>
-<title>Klaxo Travel Tips - Premium Driving &amp; Travel Stories from Bavaria</title>
+<title>Klaxo Travel Tips — Premium Driving &amp; Travel Stories from Bavaria</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta name="description" content="The official Klaxo Travel Tips blog: rental advice, scenic drives, alpine transfers and eco-friendly travel from Munich and across Bavaria."/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {"primary-container": "#ff8c00","on-surface-variant": "#564334","outline": "#897362","surface": "#fff8f5","surface-container-low": "#fff1e9","outline-variant": "#ddc1ae","on-primary": "#ffffff","surface-container-lowest": "#ffffff","background": "#fff8f5","on-surface": "#241912","primary": "#904d00"},
-            "borderRadius": {"DEFAULT": "0.25rem","lg": "0.5rem","xl": "0.75rem","full": "9999px"},
-            "spacing": {"container-max": "1280px","margin-edge": "32px","gutter": "24px","section-gap": "120px"},
-            "fontFamily": {"label-bold": ["Plus Jakarta Sans"],"body-lg": ["Plus Jakarta Sans"],"body-md": ["Plus Jakarta Sans"],"headline-lg": ["Space Grotesk"],"display-xl": ["Space Grotesk"],"headline-md": ["Space Grotesk"]},
-            "fontSize": {"label-bold": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "700"}],"body-lg": ["18px", {"lineHeight": "1.7", "fontWeight": "400"}],"body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],"headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],"display-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],"headline-md": ["28px", {"lineHeight": "1.3", "fontWeight": "600"}]}
-          },
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#904d00",
+          "primary-container": "#ff8c00",
+          "on-primary": "#ffffff",
+          "surface": "#fff8f5",
+          "surface-container-low": "#fff1e9",
+          "surface-container-lowest": "#ffffff",
+          "on-surface": "#241912",
+          "on-surface-variant": "#564334",
+          "outline": "#897362",
+          "outline-variant": "#ddc1ae",
+          "ink": "#1a120c",
+          "ink-2": "#2b1e14"
         },
+        fontFamily: {
+          display: ["Space Grotesk", "sans-serif"],
+          body: ["Plus Jakarta Sans", "sans-serif"]
+        },
+        boxShadow: {
+          "card": "0 1px 2px rgba(36,25,18,.06), 0 8px 24px -8px rgba(36,25,18,.12)",
+          "card-hover": "0 2px 4px rgba(36,25,18,.08), 0 24px 48px -12px rgba(144,77,0,.28)",
+          "glow": "0 0 0 1px rgba(255,140,0,.25), 0 12px 40px -8px rgba(255,140,0,.45)"
+        }
       }
-    </script>
+    }
+  }
+</script>
 <style>
-.speed-line { width: 40px; height: 4px; background: #ff8c00; display: inline-block; margin-right: 8px; position: relative; }
-.speed-line::before { content: ''; position: absolute; left: -12px; width: 20px; height: 4px; background: rgba(255,140,0,.4); }
-.speed-line::after { content: ''; position: absolute; left: -20px; width: 6px; height: 4px; background: rgba(255,140,0,.2); }
-@keyframes slideUpFade { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.animate-reveal { animation: slideUpFade .8s ease-out forwards; }
-.hover-lift { transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease; }
-.hover-lift:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04); }
-.btn-premium-transition { transition: all .3s cubic-bezier(.4,0,.2,1); }
-.btn-premium-transition:hover { filter: brightness(1.1); transform: scale(1.02); }
-.image-premium-hover { transition: all .5s ease; }
-.image-premium-hover:hover { filter: brightness(1.05) contrast(1.05); transform: scale(1.02); }
+  html { scroll-behavior: smooth; }
+  body { font-family: "Plus Jakarta Sans", sans-serif; }
+  .font-display { font-family: "Space Grotesk", sans-serif; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .msi-fill { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+
+  /* ---- Signature: Klaxo speed-line motif ---- */
+  .speed-line { width: 40px; height: 4px; background: #ff8c00; display: inline-block; position: relative; border-radius: 2px; }
+  .speed-line::before { content:''; position:absolute; left:-12px; top:0; width:20px; height:4px; background:rgba(255,140,0,.45); border-radius:2px; }
+  .speed-line::after  { content:''; position:absolute; left:-20px; top:0; width:6px;  height:4px; background:rgba(255,140,0,.22); border-radius:2px; }
+
+  /* ---- Signature: road ticker marquee ---- */
+  .ticker-track { display:flex; gap:0; width:max-content; animation: ticker 42s linear infinite; }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .ticker-item { display:inline-flex; align-items:center; gap:.9rem; padding:0 1.4rem; white-space:nowrap; }
+  .ticker-dash { width:34px; height:2px; background:repeating-linear-gradient(90deg,#ff8c00 0 10px,transparent 10px 18px); }
+
+  /* ---- Reveal on scroll ---- */
+  .reveal { opacity:0; transform:translateY(24px); transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
+  .reveal.in { opacity:1; transform:none; }
+
+  /* ---- Cards ---- */
+  .hover-lift { transition: transform .35s cubic-bezier(.34,1.3,.64,1), box-shadow .35s ease; }
+  .hover-lift:hover { transform: translateY(-6px); }
+  .img-zoom img { transition: transform .8s cubic-bezier(.22,1,.36,1), filter .8s ease; }
+  .img-zoom:hover img { transform: scale(1.06); filter: saturate(1.08); }
+
+  /* ---- Buttons ---- */
+  .btn-primary { transition: all .3s cubic-bezier(.4,0,.2,1); }
+  .btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); box-shadow: 0 10px 24px -8px rgba(255,140,0,.6); }
+
+  /* ---- Glass nav ---- */
+  .glass { backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); background: rgba(255,248,245,.82); }
+
+  /* ---- Hero texture: subtle contour roads ---- */
+  .hero-grid {
+    background-image:
+      radial-gradient(1200px 500px at 85% -10%, rgba(255,140,0,.16), transparent 60%),
+      radial-gradient(700px 400px at 0% 110%, rgba(255,140,0,.10), transparent 60%),
+      repeating-linear-gradient(115deg, rgba(255,255,255,.028) 0 1px, transparent 1px 96px);
+  }
+
+  /* ---- Wishlist heart ---- */
+  .heart-btn .material-symbols-outlined { transition: transform .25s cubic-bezier(.34,1.56,.64,1), color .2s; }
+  .heart-btn.saved .material-symbols-outlined { font-variation-settings:'FILL' 1; color:#ff8c00; transform: scale(1.12); }
+
+  /* ---- Filter pills ---- */
+  .pill { transition: all .25s ease; }
+  .pill.active { background:#241912; color:#fff8f5; border-color:#241912; }
+
+  .no-scrollbar::-webkit-scrollbar { display:none; }
+  .no-scrollbar { -ms-overflow-style:none; scrollbar-width:none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ticker-track { animation: none; }
+    .reveal { opacity:1; transform:none; transition:none; }
+    html { scroll-behavior: auto; }
+  }
 </style>
 </head>
-<body class="bg-surface font-body-md text-on-surface">
-<header class="bg-white w-full sticky top-0 z-50 border-b border-zinc-200 shadow-sm">
-<div class="flex justify-between items-center gap-3 sm:gap-6 w-full px-4 sm:px-6 py-3">
-<div class="flex items-center gap-4 lg:gap-6 shrink-0">
-<a href="index.html" class="font-['Space_Grotesk'] tracking-tighter leading-none flex flex-col">
-<span class="text-xl sm:text-2xl font-black italic uppercase text-primary-container">Klaxo</span>
-<span class="text-[9px] sm:text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-500 mt-0.5">Travel Tips</span>
-</a>
-<div class="relative group hidden md:block">
-<button class="flex items-center gap-1 text-zinc-800 hover:text-zinc-900 font-['Space_Grotesk'] font-semibold py-2" type="button">Discover<span class="material-symbols-outlined text-lg transition-transform group-hover:rotate-180">expand_more</span></button>
-<div class="absolute left-0 top-full pt-3 w-64 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition duration-150">
-<div class="bg-white border border-zinc-200 rounded-xl shadow-xl p-2">
-<a href="index.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-zinc-50"><span class="material-symbols-outlined text-primary-container">tips_and_updates</span><span class="font-['Space_Grotesk'] font-semibold text-zinc-800">Travel Tips</span></a>
-<a href="https://www.klaxo.eu/packages" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-zinc-50"><span class="material-symbols-outlined text-primary-container">map</span><span class="font-['Space_Grotesk'] font-semibold text-zinc-800">Destinations</span></a>
-<a href="https://www.klaxo.eu/#fleet" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-zinc-50"><span class="material-symbols-outlined text-primary-container">explore</span><span class="font-['Space_Grotesk'] font-semibold text-zinc-800">Explore the Fleet</span></a>
-<a href="about.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-zinc-50"><span class="material-symbols-outlined text-primary-container">info</span><span class="font-['Space_Grotesk'] font-semibold text-zinc-800">About</span></a>
-</div>
-</div>
-</div>
-</div>
-<form class="hidden md:flex flex-1 max-w-2xl items-center gap-3 bg-white border border-zinc-300 hover:border-zinc-500 focus-within:border-zinc-900 focus-within:shadow-md rounded-full py-3 px-5 transition" role="search">
-<span class="material-symbols-outlined text-zinc-500">search</span>
-<input type="search" placeholder="Search for a place or guide" class="flex-1 bg-transparent outline-none placeholder:text-zinc-500 text-zinc-900 font-['Plus_Jakarta_Sans']" aria-label="Search for a place or guide"/>
-</form>
-<div class="flex items-center gap-1 shrink-0">
-<button id="mobile-menu-btn" class="md:hidden flex items-center gap-2 border border-zinc-300 rounded-full pl-3 pr-1 py-1 hover:shadow-md transition" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu" type="button">
-<span id="mobile-menu-icon" class="material-symbols-outlined text-zinc-700 text-lg">menu</span>
-<span class="w-8 h-8 rounded-full bg-zinc-200 flex items-center justify-center"><span class="material-symbols-outlined text-zinc-600 text-lg">person</span></span>
-</button>
-</div>
-</header>
-<!-- Scroll Progress Bar -->
-<div class="fixed top-[72px] left-0 w-full h-1 z-40 bg-zinc-800">
-<div data-scroll-progress class="h-full bg-primary-container" style="width: 0%;"></div>
-</div>
-<!-- Hero Section -->
-<section class="relative h-[716px] w-full overflow-hidden" data-hero-scrub>
-<img data-hero-image class="absolute inset-0 w-full h-full object-cover will-change-transform" data-alt="A cinematic wide shot of a winding asphalt road hugging the jagged coastline of a crystal blue Bavarian alpine lake. The lighting is high-contrast morning sun casting long shadows from the surrounding mountains, reflecting a premium travel aesthetic. The scene is dominated by a deep palette of lake blue, mountain grey, and vibrant Klaxo orange highlights in the distance. The mood is adventurous and serene." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC30qh3-Sjytqxrusi70h2t_ybTpoh9vCORQkHB7CqOaIwJA01cdr6ZaFEyczeI00xlBmEN6s0PRyPsg3Yh6NBgVEfnp-mZuMjboCtcEDZS9_z72GCyHLHBA_qAZsOBux0GHMKAVLqpB8B66qIx-_waHljVud-LrUlhx2iFppXO0G2bu1KXKeh5-n5QmdZkRZUx888CVufGdiSuiDd8XVL7kwMnTQLSb8jaLFyyDIAbXZsUjzV4t3oK3rUpnrS9daNy0v8CKq0VTM9k"/>
-<div data-hero-overlay aria-hidden class="absolute inset-0 bg-black/0 pointer-events-none" style="opacity: 0;"></div>
-<div data-hero-card class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end pb-16 px-margin-edge will-change-transform">
-<div class="max-w-container-max mx-auto w-full">
-<div class="inline-block bg-primary-container text-white px-3 py-1 text-label-bold font-label-bold uppercase mb-4">
-                    Field Notes
-                </div>
-<h1 class="text-white font-display-xl text-display-xl max-w-4xl">
-<span data-hero-title-top class="block will-change-transform">Top 5 Hidden</span>
-<span data-hero-title-bottom class="block will-change-transform">Coastal Drives in Bavaria</span>
-</h1>
-<div class="flex items-center gap-6 mt-8 text-white/80">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary-container">calendar_today</span>
-<span class="font-label-bold text-label-bold uppercase">October 12, 2024</span>
-</div>
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary-container">speed</span>
-<span class="font-label-bold text-label-bold uppercase">12 Min Read</span>
-</div>
-</div>
-<div id="mobile-menu" class="hidden md:hidden bg-white border-t border-zinc-200 shadow-lg max-h-[calc(100vh-72px)] overflow-y-auto">
-<div class="p-4 space-y-3">
-<nav class="flex flex-col">
-<a href="index.html" class="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-zinc-50"><span class="material-symbols-outlined text-primary-container">tips_and_updates</span><span class="font-['Space_Grotesk'] font-semibold text-zinc-800">Travel Tips</span></a>
-<a href="https://www.klaxo.eu/packages" class="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-zinc-50"><span class="material-symbols-outlined text-primary-container">map</span><span class="font-['Space_Grotesk'] font-semibold text-zinc-800">Destinations</span></a>
-<a href="https://www.klaxo.eu/#fleet" class="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-zinc-50"><span class="material-symbols-outlined text-primary-container">explore</span><span class="font-['Space_Grotesk'] font-semibold text-zinc-800">Explore the Fleet</span></a>
-<a href="about.html" class="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-zinc-50"><span class="material-symbols-outlined text-primary-container">info</span><span class="font-['Space_Grotesk'] font-semibold text-zinc-800">About</span></a>
-</nav>
-<a href="https://www.klaxo.eu/#rental" class="block w-full text-center bg-primary-container text-white font-['Space_Grotesk'] font-bold tracking-tighter uppercase px-4 py-3 rounded-full btn-premium-transition">Rent Now</a>
-</div>
-</div>
+<body class="bg-surface text-on-surface antialiased">
+
+<!-- ============ NAV ============ -->
+<header class="glass w-full sticky top-0 z-50 border-b border-outline-variant/60">
+  <div class="max-w-[1280px] mx-auto flex items-center gap-4 px-4 sm:px-8 py-3">
+    <a href="index.html" class="font-display tracking-tighter leading-none flex flex-col shrink-0">
+      <span class="text-2xl font-black italic uppercase text-primary-container">Klaxo</span>
+      <span class="text-[9px] font-bold tracking-[0.24em] uppercase text-on-surface-variant mt-0.5">Travel Tips</span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-1 ml-6 text-sm font-semibold text-on-surface-variant">
+      <a class="px-3 py-2 rounded-full hover:bg-surface-container-low hover:text-on-surface transition" href="index.html">Travel Tips</a>
+      <a class="px-3 py-2 rounded-full hover:bg-surface-container-low hover:text-on-surface transition" href="https://www.klaxo.eu/packages">Destinations</a>
+      <a class="px-3 py-2 rounded-full hover:bg-surface-container-low hover:text-on-surface transition" href="https://www.klaxo.eu/#fleet">Fleet</a>
+      <a class="px-3 py-2 rounded-full hover:bg-surface-container-low hover:text-on-surface transition" href="#reviews">Reviews</a>
+      <a class="px-3 py-2 rounded-full hover:bg-surface-container-low hover:text-on-surface transition" href="about.html">About</a>
+    </nav>
+    <div class="ml-auto flex items-center gap-2">
+      <button id="wishlistBtn" class="relative grid place-items-center w-10 h-10 rounded-full border border-outline-variant hover:border-primary-container hover:text-primary-container transition" aria-label="Saved articles" title="Your saved list">
+        <span class="material-symbols-outlined text-[22px]">favorite</span>
+        <span id="wishlistCount" class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 grid place-items-center rounded-full bg-primary-container text-white text-[10px] font-bold hidden">0</span>
+      </button>
+      <a href="https://www.klaxo.eu/#rental" class="btn-primary hidden sm:inline-flex items-center gap-2 bg-primary-container text-white font-bold text-sm px-5 py-2.5 rounded-full">
+        Rent Now <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+      </a>
+      <button id="menuBtn" class="lg:hidden grid place-items-center w-10 h-10 rounded-full border border-outline-variant" aria-label="Menu">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="lg:hidden hidden border-t border-outline-variant/60 bg-surface px-6 py-4 space-y-1 text-sm font-semibold">
+    <a class="block py-2" href="index.html">Travel Tips</a>
+    <a class="block py-2" href="https://www.klaxo.eu/packages">Destinations</a>
+    <a class="block py-2" href="https://www.klaxo.eu/#fleet">Fleet</a>
+    <a class="block py-2" href="#reviews">Reviews</a>
+    <a class="block py-2" href="about.html">About</a>
+    <a class="inline-flex items-center gap-2 bg-primary-container text-white font-bold px-5 py-2.5 rounded-full mt-2" href="https://www.klaxo.eu/#rental">Rent Now</a>
+  </div>
 </header>
 
-<!-- Hero -->
-<section class="relative bg-zinc-900 text-white py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 md:px-margin-edge overflow-hidden">
-<div class="max-w-container-max mx-auto relative z-10">
-<div class="inline-block bg-primary-container text-white px-3 py-1 text-label-bold font-label-bold uppercase mb-3 sm:mb-4">The Klaxo Travel Tips Blog</div>
-<h1 class="font-display-xl text-3xl sm:text-4xl md:text-5xl lg:text-display-xl leading-tight max-w-4xl animate-reveal">Stories from the road, fueled by Klaxo.</h1>
-<p class="font-body-lg text-base sm:text-body-lg text-white/80 mt-4 sm:mt-6 max-w-3xl">Practical guides for renting, driving and exploring across Munich, Bavaria, Austria and Switzerland — written by the Klaxo Team from <a class="text-orange-400 underline hover:text-orange-300" href="https://www.klaxo.eu/">klaxo.eu</a>.</p>
-</div>
-<div class="absolute -right-12 -bottom-12 opacity-10 pointer-events-none"><span class="material-symbols-outlined text-[180px] sm:text-[240px] md:text-[320px] text-primary-container" style="font-variation-settings: 'FILL' 1;">speed</span></div>
+<!-- ============ HERO ============ -->
+<section class="relative bg-ink text-surface overflow-hidden hero-grid">
+  <div class="max-w-[1280px] mx-auto px-4 sm:px-8 pt-16 sm:pt-24 pb-14 grid lg:grid-cols-12 gap-10 items-end">
+    <div class="lg:col-span-7 reveal">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="speed-line"></span>
+        <span class="text-[11px] font-bold tracking-[0.28em] uppercase text-primary-container">The Klaxo Travel Tips Blog</span>
+      </div>
+      <h1 class="font-display font-bold leading-[1.02] tracking-tight text-[42px] sm:text-[64px] lg:text-[72px]">
+        Stories from<br/>the road, <span class="italic text-primary-container">fueled</span><br/>by Klaxo.
+      </h1>
+      <p class="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-surface/70">
+        Practical guides for renting, driving and exploring across Munich, Bavaria, Austria and Switzerland — routes we drive before we recommend, written by the team at <a class="text-primary-container underline underline-offset-4 decoration-primary-container/40 hover:decoration-primary-container" href="https://www.klaxo.eu/">klaxo.eu</a>.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center gap-3">
+        <a href="#articles" class="btn-primary inline-flex items-center gap-2 bg-primary-container text-white font-bold px-6 py-3 rounded-full">
+          Read the guides <span class="material-symbols-outlined text-[18px]">south</span>
+        </a>
+        <a href="https://www.klaxo.eu/#rental" class="inline-flex items-center gap-2 font-bold px-6 py-3 rounded-full border border-surface/25 hover:border-primary-container hover:text-primary-container transition">
+          Book a car <span class="material-symbols-outlined text-[18px]">arrow_outward</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Featured card -->
+    <a href="day-trips-from-munich.html" class="lg:col-span-5 group img-zoom hover-lift reveal block relative rounded-2xl overflow-hidden shadow-glow" style="transition-delay:.15s">
+      <div class="aspect-[4/5] sm:aspect-[16/12] lg:aspect-[4/5] bg-ink-2">
+        <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=1200&auto=format&fit=crop" alt="Neuschwanstein Castle rising above autumn forest" class="w-full h-full object-cover opacity-90" onerror="this.style.display='none'"/>
+      </div>
+      <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent"></div>
+      <div class="absolute top-4 left-4 flex items-center gap-2">
+        <span class="text-[10px] font-bold tracking-[0.2em] uppercase bg-primary-container text-white px-3 py-1.5 rounded-full">Latest · Day Trips</span>
+      </div>
+      <div class="absolute bottom-0 p-6">
+        <h2 class="font-display font-bold text-2xl leading-snug">5 Fairytale Day Trips from Munich You Can't Miss</h2>
+        <p class="mt-2 text-sm text-surface/70 line-clamp-2">Neuschwanstein, Salzburg, Hallstatt, Rothenburg and Linderhof — with the right Klaxo car for each.</p>
+        <div class="mt-3 flex items-center gap-4 text-xs font-semibold text-surface/60">
+          <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">person</span>Daniel · Klaxo Team</span>
+          <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">speed</span>10 min read</span>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- Signature: road ticker -->
+  <div class="border-t border-surface/10 py-4 overflow-hidden" aria-hidden="true">
+    <div class="ticker-track font-display text-sm font-semibold uppercase tracking-[0.18em] text-surface/55">
+      <!-- set A -->
+      <span class="ticker-item"><span class="ticker-dash"></span>Munich <span class="text-primary-container">→</span> Neuschwanstein · 1h 45</span>
+      <span class="ticker-item"><span class="ticker-dash"></span>Munich <span class="text-primary-container">→</span> Salzburg · 1h 30</span>
+      <span class="ticker-item"><span class="ticker-dash"></span>Munich <span class="text-primary-container">→</span> Hallstatt · 2h 45</span>
+      <span class="ticker-item"><span class="ticker-dash"></span>Munich <span class="text-primary-container">→</span> Kitzbühel · 1h 25</span>
+      <span class="ticker-item"><span class="ticker-dash"></span>Munich <span class="text-primary-container">→</span> St. Moritz · 3h 30</span>
+      <span class="ticker-item"><span class="ticker-dash"></span>Munich <span class="text-primary-container">→</span> Rothenburg · 2h 30</span>
+      <!-- set B (duplicate for seamless loop) -->
+      <span class="ticker-item"><span class="ticker-dash"></span>Munich <span class="text-primary-container">→</span> Neuschwanstein · 1h 45</span>
+      <span class="ticker-item"><span class="ticker-dash"></span>Munich <span class="text-primary-container">→</span> Salzburg · 1h 30</span>
+      <span class="ticker-item"><span class="ticker-dash"></span>Munich <span class="text-primary-container">→</span> Hallstatt · 2h 45</span>
+      <span class="ticker-item"><span class="ticker-dash"></span>Munich <span class="text-primary-container">→</span> Kitzbühel · 1h 25</span>
+      <span class="ticker-item"><span class="ticker-dash"></span>Munich <span class="text-primary-container">→</span> St. Moritz · 3h 30</span>
+      <span class="ticker-item"><span class="ticker-dash"></span>Munich <span class="text-primary-container">→</span> Rothenburg · 2h 30</span>
+    </div>
+  </div>
 </section>
 
-<!-- Featured Article -->
-<section class="max-w-container-max mx-auto px-4 sm:px-6 md:px-margin-edge py-12 sm:py-16 md:py-24">
-<p class="text-primary font-label-bold text-label-bold uppercase tracking-[0.2em] mb-3">Latest</p>
-<a href="day-trips-from-munich.html" class="group block hover-lift">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
-<div class="relative overflow-hidden rounded-xl h-64 sm:h-80 md:h-[440px]">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A wide cinematic view of a fairytale Bavarian castle at golden hour with the Alps in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC30qh3-Sjytqxrusi70h2t_ybTpoh9vCORQkHB7CqOaIwJA01cdr6ZaFEyczeI00xlBmEN6s0PRyPsg3Yh6NBgVEfnp-mZuMjboCtcEDZS9_z72GCyHLHBA_qAZsOBux0GHMKAVLqpB8B66qIx-_waHljVud-LrUlhx2iFppXO0G2bu1KXKeh5-n5QmdZkRZUx888CVufGdiSuiDd8XVL7kwMnTQLSb8jaLFyyDIAbXZsUjzV4t3oK3rUpnrS9daNy0v8CKq0VTM9k"/>
-<div class="absolute top-3 sm:top-4 left-3 sm:left-4 bg-primary-container text-white px-3 py-1 text-[10px] sm:text-label-bold font-label-bold uppercase">Day Trips</div>
-</div>
-<div>
-<h2 class="font-headline-lg text-2xl sm:text-3xl md:text-headline-lg leading-tight mb-4 group-hover:text-primary-container transition-colors">5 Fairytale Day Trips from Munich You Can't Miss</h2>
-<p class="text-on-surface-variant text-base sm:text-body-md mb-5">From Neuschwanstein and Salzburg to Hallstatt, Rothenburg and Linderhof — five magical destinations within easy reach of Munich, with the right Klaxo car for each.</p>
-<div class="flex flex-wrap items-center gap-3 sm:gap-5 text-on-surface-variant text-sm">
-<span class="flex items-center gap-2"><span class="material-symbols-outlined text-primary-container">person</span>Daniel (Klaxo Team)</span>
-<span class="flex items-center gap-2"><span class="material-symbols-outlined text-primary-container">calendar_today</span>May 2, 2026</span>
-<span class="flex items-center gap-2"><span class="material-symbols-outlined text-primary-container">speed</span>10 Min Read</span>
-</div>
-<span class="inline-flex items-center gap-2 mt-6 font-label-bold text-label-bold uppercase border-b-2 border-zinc-900 pb-1 text-zinc-900 group-hover:text-primary-container group-hover:border-primary-container transition-colors">Read Article<span class="material-symbols-outlined text-base">arrow_forward</span></span>
-</div>
-</div>
-</a>
+<!-- ============ ARTICLES (bento + filters + wishlist) ============ -->
+<section id="articles" class="max-w-[1280px] mx-auto px-4 sm:px-8 py-20 sm:py-28">
+  <div class="flex flex-wrap items-end justify-between gap-6 mb-8 reveal">
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="speed-line"></span>
+        <span class="text-[11px] font-bold tracking-[0.28em] uppercase text-primary">All Articles</span>
+      </div>
+      <h2 class="font-display font-bold text-3xl sm:text-[40px] leading-tight tracking-tight">Travel tips &amp; driving guides</h2>
+    </div>
+    <a href="https://www.klaxo.eu/#rental" class="inline-flex items-center gap-2 font-bold text-sm text-primary hover:text-primary-container transition">
+      Rent a car <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+    </a>
+  </div>
+
+  <!-- Filter pills -->
+  <div class="flex gap-2 overflow-x-auto no-scrollbar pb-2 mb-10 reveal" role="tablist" aria-label="Filter articles by topic">
+    <button class="pill active shrink-0 px-4 py-2 rounded-full border border-outline-variant text-sm font-semibold" data-filter="all">All</button>
+    <button class="pill shrink-0 px-4 py-2 rounded-full border border-outline-variant text-sm font-semibold" data-filter="day-trips">Day Trips</button>
+    <button class="pill shrink-0 px-4 py-2 rounded-full border border-outline-variant text-sm font-semibold" data-filter="coastal">Coastal Drives</button>
+    <button class="pill shrink-0 px-4 py-2 rounded-full border border-outline-variant text-sm font-semibold" data-filter="alpine">Alpine Transfers</button>
+    <button class="pill shrink-0 px-4 py-2 rounded-full border border-outline-variant text-sm font-semibold" data-filter="group">Group Travel</button>
+    <button class="pill shrink-0 px-4 py-2 rounded-full border border-outline-variant text-sm font-semibold" data-filter="eco">Sustainable</button>
+  </div>
+
+  <div id="articleGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    <!-- Card: coastal (large) -->
+    <article data-cat="coastal" data-id="coastal-drives" data-title="Top 5 Hidden Coastal Drives in Bavaria" class="article-card group relative sm:col-span-2 lg:row-span-2 rounded-2xl overflow-hidden bg-surface-container-lowest shadow-card hover-lift img-zoom reveal">
+      <a href="coastal-drives.html" class="absolute inset-0 z-10" aria-label="Read: Top 5 Hidden Coastal Drives in Bavaria"></a>
+      <div class="aspect-[16/9] lg:aspect-[16/12] overflow-hidden bg-surface-container-low">
+        <img src="https://images.unsplash.com/photo-1439066615861-d1af74d74000?q=80&w=1400&auto=format&fit=crop" alt="Wooden pier over a clear Bavarian lake" class="w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'"/>
+      </div>
+      <button class="heart-btn absolute z-20 top-4 right-4 grid place-items-center w-10 h-10 rounded-full bg-white/90 shadow-card text-on-surface-variant hover:text-primary-container" aria-label="Save to your list">
+        <span class="material-symbols-outlined text-[20px]">favorite</span>
+      </button>
+      <div class="p-6">
+        <div class="flex items-center gap-3 text-[11px] font-bold tracking-[0.16em] uppercase text-primary mb-3"><span class="speed-line"></span>Coastal Drives</div>
+        <h3 class="font-display font-bold text-2xl leading-snug group-hover:text-primary transition">Top 5 Hidden Coastal Drives in Bavaria</h3>
+        <p class="mt-2 text-on-surface-variant leading-relaxed">Lakeside routes that rival the Mediterranean — Tegernsee, Chiemsee, Walchensee and more, with the best Klaxo car for each shoreline.</p>
+        <div class="mt-4 flex items-center gap-4 text-xs font-semibold text-outline">
+          <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">person</span>Daniel · Klaxo Team</span>
+          <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">speed</span>12 min</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card: day trips -->
+    <article data-cat="day-trips" data-id="day-trips-from-munich" data-title="5 Fairytale Day Trips from Munich" class="article-card group relative rounded-2xl overflow-hidden bg-surface-container-lowest shadow-card hover-lift img-zoom reveal">
+      <a href="day-trips-from-munich.html" class="absolute inset-0 z-10" aria-label="Read: 5 Fairytale Day Trips from Munich"></a>
+      <div class="aspect-[16/10] overflow-hidden bg-surface-container-low">
+        <img src="https://images.unsplash.com/photo-1516550893923-42d28e5677af?q=80&w=900&auto=format&fit=crop" alt="Hallstatt village on the lake at dusk" class="w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'"/>
+      </div>
+      <button class="heart-btn absolute z-20 top-4 right-4 grid place-items-center w-10 h-10 rounded-full bg-white/90 shadow-card text-on-surface-variant hover:text-primary-container" aria-label="Save to your list">
+        <span class="material-symbols-outlined text-[20px]">favorite</span>
+      </button>
+      <div class="p-6">
+        <div class="text-[11px] font-bold tracking-[0.16em] uppercase text-primary mb-2">Day Trips</div>
+        <h3 class="font-display font-bold text-lg leading-snug group-hover:text-primary transition">5 Fairytale Day Trips from Munich You Can't Miss</h3>
+        <div class="mt-3 flex items-center gap-4 text-xs font-semibold text-outline">
+          <span>Daniel · Klaxo Team</span><span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">speed</span>10 min</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card: group travel -->
+    <article data-cat="group" data-id="v-class-group-travel" data-title="V-Class Rentals: Luxury & Group Travel in Munich" class="article-card group relative rounded-2xl overflow-hidden bg-surface-container-lowest shadow-card hover-lift img-zoom reveal">
+      <a href="v-class-group-travel.html" class="absolute inset-0 z-10" aria-label="Read: V-Class Rentals"></a>
+      <div class="aspect-[16/10] overflow-hidden bg-surface-container-low">
+        <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=900&auto=format&fit=crop" alt="Hands on the steering wheel on an open road" class="w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'"/>
+      </div>
+      <button class="heart-btn absolute z-20 top-4 right-4 grid place-items-center w-10 h-10 rounded-full bg-white/90 shadow-card text-on-surface-variant hover:text-primary-container" aria-label="Save to your list">
+        <span class="material-symbols-outlined text-[20px]">favorite</span>
+      </button>
+      <div class="p-6">
+        <div class="text-[11px] font-bold tracking-[0.16em] uppercase text-primary mb-2">Group Travel</div>
+        <h3 class="font-display font-bold text-lg leading-snug group-hover:text-primary transition">V-Class Rentals: Luxury &amp; Group Travel in Munich</h3>
+        <div class="mt-3 flex items-center gap-4 text-xs font-semibold text-outline">
+          <span>Daniel · Klaxo Team</span><span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">speed</span>9 min</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card: alpine -->
+    <article data-cat="alpine" data-id="alpine-transfers" data-title="Seamless Alpine Transfers: Munich to Austria & Switzerland" class="article-card group relative rounded-2xl overflow-hidden bg-surface-container-lowest shadow-card hover-lift img-zoom reveal">
+      <a href="alpine-transfers.html" class="absolute inset-0 z-10" aria-label="Read: Seamless Alpine Transfers"></a>
+      <div class="aspect-[16/10] overflow-hidden bg-surface-container-low">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=900&auto=format&fit=crop" alt="Snowy Alpine peaks at sunrise" class="w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'"/>
+      </div>
+      <button class="heart-btn absolute z-20 top-4 right-4 grid place-items-center w-10 h-10 rounded-full bg-white/90 shadow-card text-on-surface-variant hover:text-primary-container" aria-label="Save to your list">
+        <span class="material-symbols-outlined text-[20px]">favorite</span>
+      </button>
+      <div class="p-6">
+        <div class="text-[11px] font-bold tracking-[0.16em] uppercase text-primary mb-2">Alpine Transfers</div>
+        <h3 class="font-display font-bold text-lg leading-snug group-hover:text-primary transition">Seamless Alpine Transfers: Munich to Austria &amp; Switzerland</h3>
+        <div class="mt-3 flex items-center gap-4 text-xs font-semibold text-outline">
+          <span>Daniel · Klaxo Team</span><span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">speed</span>11 min</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card: eco -->
+    <article data-cat="eco" data-id="sustainable-mobility" data-title="Hybrid & Electric Rentals: Sustainable Mobility in Bavaria" class="article-card group relative rounded-2xl overflow-hidden bg-surface-container-lowest shadow-card hover-lift img-zoom reveal">
+      <a href="sustainable-mobility.html" class="absolute inset-0 z-10" aria-label="Read: Hybrid & Electric Rentals"></a>
+      <div class="aspect-[16/10] overflow-hidden bg-surface-container-low">
+        <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?q=80&w=900&auto=format&fit=crop" alt="Electric car parked in soft evening light" class="w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'"/>
+      </div>
+      <button class="heart-btn absolute z-20 top-4 right-4 grid place-items-center w-10 h-10 rounded-full bg-white/90 shadow-card text-on-surface-variant hover:text-primary-container" aria-label="Save to your list">
+        <span class="material-symbols-outlined text-[20px]">favorite</span>
+      </button>
+      <div class="p-6">
+        <div class="text-[11px] font-bold tracking-[0.16em] uppercase text-primary mb-2">Sustainable Mobility</div>
+        <h3 class="font-display font-bold text-lg leading-snug group-hover:text-primary transition">Hybrid &amp; Electric Rentals: Sustainable Mobility in Bavaria</h3>
+        <div class="mt-3 flex items-center gap-4 text-xs font-semibold text-outline">
+          <span>Daniel · Klaxo Team</span><span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">speed</span>9 min</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card: about -->
+    <article data-cat="all" class="article-card group relative rounded-2xl overflow-hidden bg-ink text-surface shadow-card hover-lift reveal">
+      <a href="about.html" class="absolute inset-0 z-10" aria-label="About this blog"></a>
+      <div class="p-6 flex flex-col h-full min-h-[260px]">
+        <span class="material-symbols-outlined text-primary-container text-[32px]">route</span>
+        <h3 class="font-display font-bold text-xl leading-snug mt-4">Driven before it's recommended.</h3>
+        <p class="mt-2 text-sm text-surface/70 leading-relaxed">An editorial companion to klaxo.eu. Every route in these guides is driven by our team, and every rental tip reflects our real fleet.</p>
+        <span class="mt-auto pt-6 inline-flex items-center gap-2 text-sm font-bold text-primary-container">About this blog <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition">arrow_forward</span></span>
+      </div>
+    </article>
+  </div>
 </section>
 
-<!-- Article Grid -->
-<section class="bg-surface-container-lowest border-t border-outline-variant py-12 sm:py-16 md:py-24 lg:py-section-gap">
-<div class="max-w-container-max mx-auto px-4 sm:px-6 md:px-margin-edge">
-<div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 sm:gap-6 mb-8 sm:mb-12">
-<div>
-<p class="text-primary font-label-bold text-label-bold uppercase tracking-[0.2em] mb-2">All Articles</p>
-<h2 class="font-headline-lg text-2xl sm:text-3xl md:text-headline-lg leading-tight">Travel Tips &amp; Driving Guides</h2>
-</div>
-<a class="text-zinc-900 font-label-bold text-label-bold uppercase border-b-2 border-zinc-900 pb-1 self-start sm:self-auto inline-flex items-center gap-2" href="https://www.klaxo.eu/#rental">Rent a Car<span class="material-symbols-outlined text-base">arrow_forward</span></a>
-</div>
-
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-gutter">
-<!-- Card: Coastal Drives -->
-<a href="coastal-drives.html" class="group hover-lift block bg-white border border-outline-variant rounded-xl overflow-hidden">
-<div class="relative h-52 sm:h-56 md:h-64 overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A coastal lake drive in Bavaria at sunset with the Alps reflected on calm water." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0utuTJYXvBr7yq6BssFbpcTw2v7NSUHUP0u8xzYG02oyRJ1O_nlnH9Smx4oZWM8VsVwYwigWII7gAt3JFHM24du7qDbmhLLthssjXOBgf0i5mNt3srbRMP_I100iXm5b_LHYtjyAqIVPYQJWuMTZZTfzDJ_znfA1D4OToe9PNbcs0yjFTO9uZw0B5YKbE5SU0ArQjR15pvA5BeEj9fyEw_1OfT3DPcK9y5sEWgoiXVfnKUBoE2z6AtvX4rnCv_vXDNZChqOcBjEjV"/>
-<div class="absolute top-3 left-3 bg-black text-white px-2 py-1 text-[10px] font-bold uppercase">Coastal Drives</div>
-</div>
-<div class="p-5 sm:p-6">
-<h3 class="font-headline-md text-lg sm:text-xl md:text-headline-md leading-tight group-hover:text-primary-container transition-colors mb-2">Top 5 Hidden Coastal Drives in Bavaria</h3>
-<p class="text-on-surface-variant/80 text-sm mb-4">Lakeside routes that rival the Mediterranean — and the best Klaxo car for each.</p>
-<div class="flex items-center gap-3 text-xs text-on-surface-variant"><span class="material-symbols-outlined text-primary-container text-base">person</span>Daniel (Klaxo Team)<span class="ml-auto flex items-center gap-1"><span class="material-symbols-outlined text-base">speed</span>12 min</span></div>
-</div>
-</a>
-
-<!-- Card: Day Trips -->
-<a href="day-trips-from-munich.html" class="group hover-lift block bg-white border border-outline-variant rounded-xl overflow-hidden">
-<div class="relative h-52 sm:h-56 md:h-64 overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A Bavarian castle in golden afternoon light, fairytale mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC30qh3-Sjytqxrusi70h2t_ybTpoh9vCORQkHB7CqOaIwJA01cdr6ZaFEyczeI00xlBmEN6s0PRyPsg3Yh6NBgVEfnp-mZuMjboCtcEDZS9_z72GCyHLHBA_qAZsOBux0GHMKAVLqpB8B66qIx-_waHljVud-LrUlhx2iFppXO0G2bu1KXKeh5-n5QmdZkRZUx888CVufGdiSuiDd8XVL7kwMnTQLSb8jaLFyyDIAbXZsUjzV4t3oK3rUpnrS9daNy0v8CKq0VTM9k"/>
-<div class="absolute top-3 left-3 bg-black text-white px-2 py-1 text-[10px] font-bold uppercase">Day Trips</div>
-</div>
-<div class="p-5 sm:p-6">
-<h3 class="font-headline-md text-lg sm:text-xl md:text-headline-md leading-tight group-hover:text-primary-container transition-colors mb-2">5 Fairytale Day Trips from Munich You Can't Miss</h3>
-<p class="text-on-surface-variant/80 text-sm mb-4">Neuschwanstein, Salzburg, Hallstatt, Rothenburg and Linderhof — all driveable from Munich.</p>
-<div class="flex items-center gap-3 text-xs text-on-surface-variant"><span class="material-symbols-outlined text-primary-container text-base">person</span>Daniel (Klaxo Team)<span class="ml-auto flex items-center gap-1"><span class="material-symbols-outlined text-base">speed</span>10 min</span></div>
-</div>
-</a>
-
-<!-- Card: Group Travel -->
-<a href="v-class-group-travel.html" class="group hover-lift block bg-white border border-outline-variant rounded-xl overflow-hidden">
-<div class="relative h-52 sm:h-56 md:h-64 overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Black Mercedes V-Class outside a Munich hotel for an executive group transfer at dawn." src="https://unsplash.com/photos/UkWw9cKh6hw/download?force=true&w=1600&fm=jpg"/>
-<div class="absolute top-3 left-3 bg-black text-white px-2 py-1 text-[10px] font-bold uppercase">Group Travel</div>
-</div>
-<div class="p-5 sm:p-6">
-<h3 class="font-headline-md text-lg sm:text-xl md:text-headline-md leading-tight group-hover:text-primary-container transition-colors mb-2">V-Class Rentals: Luxury &amp; Group Travel in Munich</h3>
-<p class="text-on-surface-variant/80 text-sm mb-4">Why the Mercedes V-Class is the definitive group travel choice in Bavaria.</p>
-<div class="flex items-center gap-3 text-xs text-on-surface-variant"><span class="material-symbols-outlined text-primary-container text-base">person</span>Daniel (Klaxo Team)<span class="ml-auto flex items-center gap-1"><span class="material-symbols-outlined text-base">speed</span>9 min</span></div>
-</div>
-</a>
-
-<!-- Card: Alpine Transfers -->
-<a href="alpine-transfers.html" class="group hover-lift block bg-white border border-outline-variant rounded-xl overflow-hidden">
-<div class="relative h-52 sm:h-56 md:h-64 overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A premium SUV climbing an alpine pass between Munich and Austria, snow-capped peaks and dramatic golden light." src="https://unsplash.com/photos/ZmP8No2SDGU/download?force=true&w=1600&fm=jpg"/>
-<div class="absolute top-3 left-3 bg-black text-white px-2 py-1 text-[10px] font-bold uppercase">Alpine Transfers</div>
-</div>
-<div data-related-grid class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-<!-- Related 1 -->
-<a href="https://www.klaxo.eu/packages" class="group cursor-pointer hover-lift block">
-<div class="relative overflow-hidden rounded-lg mb-6 h-64">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A rugged off-road vehicle driving through a dusty, sun-drenched canyon landscape. The lighting is warm and golden, creating a high-action, adventurous mood. The color palette features earthy browns and oranges with a crisp blue sky, following the high-contrast modern UI style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkT8EFyNY9pqVp9jufQ546EjF36lNgpji8BofAqTSMb2MOK5qIcdl5qH-1T-BudaZku_2xAAAOYqwbNYl0q-GB1prO2J7wrTkszCXkl_BhmsB3-dKGK5UuLOVWfbXoWeNw2m3YuvIOotL3SIyF11NqJqJT6X9Dj3FNm3O4gWPye2TExWybUJ_me-yNwvb5E-VwTXoJN9wkNmYy3QMDXYH67bPODO7lHP3rVslbKLp1MZdSTVWUfK7mmUWbGCOYS494rRWo5Z0fJScR"/>
-<div class="absolute top-4 left-4 bg-black text-white px-2 py-1 text-[10px] font-bold uppercase">Road Trip Guide</div>
-</div>
-</a>
-
-<!-- Card: Sustainable -->
-<a href="sustainable-mobility.html" class="group hover-lift block bg-white border border-outline-variant rounded-xl overflow-hidden">
-<div class="relative h-52 sm:h-56 md:h-64 overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A sleek modern Tesla Model 3 charging at a futuristic charging station in lush Bavarian countryside, soft daylight." src="https://unsplash.com/photos/N3FCay6SBzc/download?force=true&w=1600&fm=jpg"/>
-<div class="absolute top-3 left-3 bg-black text-white px-2 py-1 text-[10px] font-bold uppercase">Sustainable Mobility</div>
-</div>
-<div class="p-5 sm:p-6">
-<h3 class="font-headline-md text-lg sm:text-xl md:text-headline-md leading-tight group-hover:text-primary-container transition-colors mb-2">Hybrid &amp; Electric Rentals: Sustainable Mobility in Bavaria</h3>
-<p class="text-on-surface-variant/80 text-sm mb-4">Tesla Model 3 and Toyota Corolla Hybrid for an eco-friendly Bavarian road trip.</p>
-<div class="flex items-center gap-3 text-xs text-on-surface-variant"><span class="material-symbols-outlined text-primary-container text-base">person</span>Daniel (Klaxo Team)<span class="ml-auto flex items-center gap-1"><span class="material-symbols-outlined text-base">speed</span>9 min</span></div>
-</div>
-</a>
-
-<!-- Card: About -->
-<a href="about.html" class="group hover-lift block bg-primary-container text-white rounded-xl overflow-hidden p-6 sm:p-8 flex flex-col justify-between">
-<div>
-<span class="material-symbols-outlined text-4xl sm:text-5xl mb-4">info</span>
-<h3 class="font-headline-md text-xl sm:text-2xl md:text-headline-md mb-3 leading-tight">About this Blog</h3>
-<p class="text-white/90 text-sm mb-6">An editorial companion to klaxo.eu, written by the Klaxo Team. Routes are driven before they are recommended; rental advice always reflects our real-world fleet.</p>
-</div>
-<span class="inline-flex items-center gap-2 font-label-bold text-label-bold uppercase border-b-2 border-white pb-1 self-start">Learn More<span class="material-symbols-outlined text-base">arrow_forward</span></span>
-</a>
-</div>
-</div>
+<!-- ============ GIFT VOUCHER BAND (KDT-45) ============ -->
+<section class="max-w-[1280px] mx-auto px-4 sm:px-8 pb-20 sm:pb-28">
+  <div class="relative overflow-hidden rounded-3xl bg-ink text-surface hero-grid reveal">
+    <div class="grid lg:grid-cols-2 gap-8 items-center p-8 sm:p-12">
+      <div>
+        <div class="flex items-center gap-3 mb-5">
+          <span class="speed-line"></span>
+          <span class="text-[11px] font-bold tracking-[0.28em] uppercase text-primary-container">New · Klaxo Gift Vouchers</span>
+        </div>
+        <h2 class="font-display font-bold text-3xl sm:text-[40px] leading-tight tracking-tight">Gift a road trip,<br/>not another <span class="italic text-primary-container">thing</span>.</h2>
+        <p class="mt-4 max-w-lg text-surface/70 leading-relaxed">Birthdays, weddings, anniversaries — give a Klaxo experience voucher redeemable against any day trip, transfer or rental. Delivered as a premium digital voucher with a personal message and unique code.</p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <a href="https://www.klaxo.eu/packages" class="btn-primary inline-flex items-center gap-2 bg-primary-container text-white font-bold px-6 py-3 rounded-full">
+            Browse experiences <span class="material-symbols-outlined text-[18px]">redeem</span>
+          </a>
+          <a href="https://www.klaxo.eu/contact" class="inline-flex items-center gap-2 font-bold px-6 py-3 rounded-full border border-surface/25 hover:border-primary-container hover:text-primary-container transition">Ask about vouchers</a>
+        </div>
+      </div>
+      <!-- Voucher mock -->
+      <div class="relative mx-auto w-full max-w-sm rotate-1 hover:rotate-0 transition duration-500">
+        <div class="rounded-2xl bg-surface text-on-surface p-6 shadow-glow">
+          <div class="flex items-start justify-between">
+            <span class="font-display font-black italic uppercase text-primary-container text-xl">Klaxo</span>
+            <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-outline">Experience Voucher</span>
+          </div>
+          <div class="mt-6 font-display font-bold text-3xl">€ 150</div>
+          <p class="mt-1 text-sm text-on-surface-variant">Happy anniversary, Anna &amp; Jonas — see you on the road to Hallstatt!</p>
+          <div class="mt-6 flex items-center justify-between border-t border-dashed border-outline-variant pt-4">
+            <div>
+              <div class="text-[10px] font-bold tracking-[0.18em] uppercase text-outline">Redemption code</div>
+              <div class="font-display font-bold tracking-[0.2em]">KLX-7F2-A9Q</div>
+            </div>
+            <span class="material-symbols-outlined text-primary-container text-[34px]">qr_code_2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- Fleet Banner -->
-<section class="bg-zinc-950 text-white py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-margin-edge">
-<div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-<div>
-<p class="text-primary-container font-label-bold text-label-bold uppercase tracking-[0.2em] mb-3">The Klaxo Fleet</p>
-<h2 class="font-headline-lg text-2xl sm:text-3xl md:text-headline-lg leading-tight mb-4">Driven, tested and recommended</h2>
-<p class="text-white/80 text-base sm:text-body-md mb-6">Every recommendation on this blog is from our real fleet — Toyota Corolla Hybrid, Mercedes GLE, VW Tiguan, Mercedes Vito, Mercedes V-Class, Tesla Model 3 and Mercedes S-Class.</p>
-<a href="https://www.klaxo.eu/#fleet" class="inline-flex items-center gap-2 bg-primary-container text-white px-5 py-3 rounded-full font-label-bold text-label-bold uppercase btn-premium-transition">Explore the Fleet<span class="material-symbols-outlined">arrow_forward</span></a>
-</div>
-<div class="grid grid-cols-2 gap-4 text-sm">
-<div class="bg-zinc-900 rounded-xl p-5"><span class="material-symbols-outlined text-primary-container text-2xl mb-2">eco</span><p class="font-bold mb-1">Toyota Corolla Hybrid</p><p class="text-white/60 text-xs">Hybrid Sedan</p></div>
-<div class="bg-zinc-900 rounded-xl p-5"><span class="material-symbols-outlined text-primary-container text-2xl mb-2">terrain</span><p class="font-bold mb-1">Mercedes GLE / VW Tiguan</p><p class="text-white/60 text-xs">Premium SUVs</p></div>
-<div class="bg-zinc-900 rounded-xl p-5"><span class="material-symbols-outlined text-primary-container text-2xl mb-2">groups</span><p class="font-bold mb-1">Mercedes Vito / V-Class</p><p class="text-white/60 text-xs">Multi-Seaters</p></div>
-<div class="bg-zinc-900 rounded-xl p-5"><span class="material-symbols-outlined text-primary-container text-2xl mb-2">bolt</span><p class="font-bold mb-1">Tesla Model 3 / S-Class</p><p class="text-white/60 text-xs">Luxury</p></div>
-</div>
-</div>
+<!-- ============ FLEET STRIP ============ -->
+<section class="max-w-[1280px] mx-auto px-4 sm:px-8 pb-20 sm:pb-28">
+  <div class="flex flex-wrap items-end justify-between gap-6 mb-10 reveal">
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="speed-line"></span>
+        <span class="text-[11px] font-bold tracking-[0.28em] uppercase text-primary">The Klaxo Fleet</span>
+      </div>
+      <h2 class="font-display font-bold text-3xl sm:text-[40px] leading-tight tracking-tight">Driven, tested and recommended</h2>
+      <p class="mt-3 max-w-2xl text-on-surface-variant leading-relaxed">Every recommendation on this blog comes from our real fleet — no theoretical cars, no stock advice.</p>
+    </div>
+    <a href="https://www.klaxo.eu/#fleet" class="inline-flex items-center gap-2 font-bold text-sm text-primary hover:text-primary-container transition">Explore the fleet <span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
+  </div>
+  <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="reveal rounded-2xl bg-surface-container-lowest border border-outline-variant/60 p-6 hover-lift hover:shadow-card">
+      <span class="material-symbols-outlined text-primary-container text-[30px]">eco</span>
+      <h3 class="font-display font-bold mt-4">Toyota Corolla Hybrid</h3>
+      <p class="text-sm text-on-surface-variant mt-1">Hybrid sedan · city &amp; lakes</p>
+    </div>
+    <div class="reveal rounded-2xl bg-surface-container-lowest border border-outline-variant/60 p-6 hover-lift hover:shadow-card" style="transition-delay:.06s">
+      <span class="material-symbols-outlined text-primary-container text-[30px]">terrain</span>
+      <h3 class="font-display font-bold mt-4">Mercedes GLE / VW Tiguan</h3>
+      <p class="text-sm text-on-surface-variant mt-1">Premium SUVs · alpine roads</p>
+    </div>
+    <div class="reveal rounded-2xl bg-surface-container-lowest border border-outline-variant/60 p-6 hover-lift hover:shadow-card" style="transition-delay:.12s">
+      <span class="material-symbols-outlined text-primary-container text-[30px]">groups</span>
+      <h3 class="font-display font-bold mt-4">Mercedes Vito / V-Class</h3>
+      <p class="text-sm text-on-surface-variant mt-1">Multi-seaters · group travel</p>
+    </div>
+    <div class="reveal rounded-2xl bg-surface-container-lowest border border-outline-variant/60 p-6 hover-lift hover:shadow-card" style="transition-delay:.18s">
+      <span class="material-symbols-outlined text-primary-container text-[30px]">bolt</span>
+      <h3 class="font-display font-bold mt-4">Tesla Model 3 / S-Class</h3>
+      <p class="text-sm text-on-surface-variant mt-1">Luxury &amp; electric · transfers</p>
+    </div>
+  </div>
 </section>
 
-<footer class="bg-zinc-950 mt-0 w-full pt-10 sm:pt-16 pb-6 border-t-8 border-zinc-900 rounded-t-xl">
-<div class="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-<div class="grid grid-cols-1 gap-10 sm:gap-12 lg:grid-cols-3">
-<div>
-<div class="flex justify-center gap-3 sm:justify-start items-center"><div class="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">speed</span></div><span class="text-3xl font-black italic text-orange-500 uppercase font-['Space_Grotesk'] tracking-tighter">Klaxo</span></div>
-<p class="text-zinc-400 mt-6 max-w-md text-center sm:max-w-xs sm:text-left leading-relaxed">Defining the next generation of premium car rentals and travel experiences across Europe. A backlink blog by <a href="https://www.klaxo.eu/" class="text-orange-400 hover:underline">klaxo.eu</a>.</p>
-<ul class="mt-8 flex justify-center gap-4 sm:justify-start">
-<li><a href="https://www.klaxo.eu/contact" aria-label="Share Klaxo" class="w-10 h-10 rounded bg-zinc-900 flex items-center justify-center text-white hover:bg-orange-500 transition-colors"><span class="material-symbols-outlined text-base">share</span></a></li>
-<li><a href="mailto:info@klaxo.eu" aria-label="Email Klaxo" class="w-10 h-10 rounded bg-zinc-900 flex items-center justify-center text-white hover:bg-orange-500 transition-colors"><span class="material-symbols-outlined text-base">mail</span></a></li>
-<li><a href="https://www.klaxo.eu/#newsletter" aria-label="Newsletter" class="w-10 h-10 rounded bg-zinc-900 flex items-center justify-center text-white hover:bg-orange-500 transition-colors"><span class="material-symbols-outlined text-base">notifications</span></a></li>
-<li><a href="https://www.klaxo.eu/" aria-label="Klaxo Website" class="w-10 h-10 rounded bg-zinc-900 flex items-center justify-center text-white hover:bg-orange-500 transition-colors"><span class="material-symbols-outlined text-base">language</span></a></li>
-</ul>
-</div>
-<div class="grid grid-cols-2 gap-6 sm:gap-8 md:grid-cols-4 lg:col-span-2 font-['Space_Grotesk'] text-sm tracking-wide">
-<div class="text-center sm:text-left"><p class="text-white font-bold uppercase tracking-widest text-sm mb-6">Navigation</p><ul class="space-y-4">
-<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="https://www.klaxo.eu/#rental">Rent a Car</a></li>
-<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="https://www.klaxo.eu/packages">Destinations</a></li>
-<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="https://www.klaxo.eu/#fleet">Fleet Guide</a></li>
-<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="index.html">Travel Blog</a></li></ul></div>
-<div class="text-center sm:text-left"><p class="text-white font-bold uppercase tracking-widest text-sm mb-6">Travel Tips</p><ul class="space-y-4">
-<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="coastal-drives.html">Coastal Drives</a></li>
-<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="day-trips-from-munich.html">Day Trips</a></li>
-<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="alpine-transfers.html">Alpine Transfers</a></li>
-<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="sustainable-mobility.html">Sustainable Mobility</a></li></ul></div>
-<div class="text-center sm:text-left"><p class="text-white font-bold uppercase tracking-widest text-sm mb-6">Support</p><ul class="space-y-4">
-<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="https://www.klaxo.eu/privacy">Privacy Policy</a></li>
-<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="https://www.klaxo.eu/terms">Terms of Service</a></li>
-<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="https://www.klaxo.eu/contact">Help Center</a></li>
-<li><a href="https://www.klaxo.eu/#newsletter" class="group flex justify-center sm:justify-start items-center gap-2"><span class="text-zinc-500 group-hover:text-orange-400 transition-colors">Live Updates</span><span class="relative flex h-2 w-2"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-500 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span></span></a></li></ul></div>
-<div class="text-center sm:text-left"><p class="text-white font-bold uppercase tracking-widest text-sm mb-6">Contact</p><ul class="space-y-4">
-<li><a href="mailto:info@klaxo.eu" class="flex items-center justify-center sm:justify-start gap-2"><span class="material-symbols-outlined text-orange-500 text-base shrink-0">mail</span><span class="text-zinc-500 hover:text-orange-400 transition-colors">info@klaxo.eu</span></a></li>
-<li><a href="tel:+498912345678" class="flex items-center justify-center sm:justify-start gap-2"><span class="material-symbols-outlined text-orange-500 text-base shrink-0">call</span><span class="text-zinc-500 hover:text-orange-400 transition-colors">+49 89 1234 5678</span></a></li>
-<li><div class="flex items-start justify-center sm:justify-start gap-2"><span class="material-symbols-outlined text-orange-500 text-base shrink-0">location_on</span><address class="text-zinc-500 not-italic flex-1">Munich, Bavaria, Germany</address></div></li></ul></div>
-</div>
-</div>
-<div class="mt-12 border-t border-zinc-900 pt-6"><div class="text-center sm:flex sm:justify-between sm:text-left">
-<p class="text-zinc-500 text-sm italic font-['Space_Grotesk']">Driven by Adventure.</p>
-<p class="text-zinc-500 text-sm mt-4 sm:mt-0 font-['Space_Grotesk']">&copy; 2024 Klaxo Car Rentals. All rights reserved.</p>
-</div></div>
-</div>
+<!-- ============ REVIEWS + GALLERY (KDT-34c, KDT-46 Tripadvisor) ============ -->
+<section id="reviews" class="bg-surface-container-low border-y border-outline-variant/50">
+  <div class="max-w-[1280px] mx-auto px-4 sm:px-8 py-20 sm:py-28">
+    <div class="grid lg:grid-cols-12 gap-10">
+      <div class="lg:col-span-5 reveal">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="speed-line"></span>
+          <span class="text-[11px] font-bold tracking-[0.28em] uppercase text-primary">Guests &amp; Memories</span>
+        </div>
+        <h2 class="font-display font-bold text-3xl sm:text-[40px] leading-tight tracking-tight">Rated by the people we drive</h2>
+        <p class="mt-4 text-on-surface-variant leading-relaxed">Real trips, real guests. Reviews are collected on Tripadvisor and Google — unedited.</p>
+
+        <!-- Tripadvisor rating badge (replace inner block with the official Tripadvisor widget embed) -->
+        <div id="tripadvisor-badge" class="mt-8 flex items-center gap-4 rounded-2xl bg-surface-container-lowest border border-outline-variant/70 p-5 shadow-card">
+          <div class="grid place-items-center w-12 h-12 rounded-full bg-[#00aa6c]/10 text-[#00aa6c]">
+            <span class="material-symbols-outlined msi-fill">travel_explore</span>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-display font-bold text-xl">5.0</span>
+              <span class="flex text-primary-container">
+                <span class="material-symbols-outlined msi-fill text-[18px]">star</span><span class="material-symbols-outlined msi-fill text-[18px]">star</span><span class="material-symbols-outlined msi-fill text-[18px]">star</span><span class="material-symbols-outlined msi-fill text-[18px]">star</span><span class="material-symbols-outlined msi-fill text-[18px]">star</span>
+              </span>
+            </div>
+            <a class="text-sm font-semibold text-on-surface-variant underline underline-offset-4 decoration-outline-variant hover:text-primary transition" href="https://www.tripadvisor.com/Attraction_Review-g187309-d25323758-Reviews-Klaxo_rent_a_car-Munich_Upper_Bavaria_Bavaria.html" rel="noopener" target="_blank">Klaxo rent a car on Tripadvisor</a>
+          </div>
+        </div>
+
+        <div class="mt-6 space-y-4">
+          <figure class="rounded-2xl bg-surface-container-lowest border border-outline-variant/70 p-5">
+            <blockquote class="text-sm leading-relaxed text-on-surface">"The tour was amazing and the driver was more than exceptional — kind, courteous and very knowledgeable."</blockquote>
+            <figcaption class="mt-3 text-xs font-bold text-outline uppercase tracking-[0.14em]">Juan · Day trip guest</figcaption>
+          </figure>
+          <figure class="rounded-2xl bg-surface-container-lowest border border-outline-variant/70 p-5">
+            <blockquote class="text-sm leading-relaxed text-on-surface">"Four V-Class only 20 hours in advance — every other rental cancelled, Klaxo delivered them to my hotel."</blockquote>
+            <figcaption class="mt-3 text-xs font-bold text-outline uppercase tracking-[0.14em]">Maximilian · Group rental</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- Gallery mosaic -->
+      <div class="lg:col-span-7 grid grid-cols-2 gap-4 content-start">
+        <div class="reveal img-zoom rounded-2xl overflow-hidden aspect-[4/5] bg-surface-container-lowest">
+          <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=800&auto=format&fit=crop" alt="Road trip through open countryside" class="w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'"/>
+        </div>
+        <div class="reveal img-zoom rounded-2xl overflow-hidden aspect-[4/5] mt-8 bg-surface-container-lowest" style="transition-delay:.08s">
+          <img src="https://images.unsplash.com/photo-1502301103665-0b95cc738daf?q=80&w=800&auto=format&fit=crop" alt="Forest road in morning fog" class="w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'"/>
+        </div>
+        <div class="reveal img-zoom rounded-2xl overflow-hidden aspect-[4/5] -mt-8 bg-surface-container-lowest" style="transition-delay:.16s">
+          <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=800&auto=format&fit=crop" alt="Neuschwanstein Castle above the forest" class="w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'"/>
+        </div>
+        <div class="reveal img-zoom rounded-2xl overflow-hidden aspect-[4/5] bg-surface-container-lowest" style="transition-delay:.24s">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=800&auto=format&fit=crop" alt="Alpine peaks at golden hour" class="w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section class="max-w-[1280px] mx-auto px-4 sm:px-8 py-20 sm:py-28">
+  <div class="reveal rounded-3xl border border-outline-variant/70 bg-surface-container-lowest p-8 sm:p-12 text-center">
+    <div class="flex items-center justify-center gap-3 mb-4">
+      <span class="speed-line"></span>
+      <span class="text-[11px] font-bold tracking-[0.28em] uppercase text-primary">Live Updates</span>
+    </div>
+    <h2 class="font-display font-bold text-3xl sm:text-[36px] tracking-tight">New routes, straight to your inbox</h2>
+    <p class="mt-3 text-on-surface-variant max-w-xl mx-auto">One email when a new guide is published. No noise, no spam — just the road.</p>
+    <a href="https://www.klaxo.eu/#newsletter" class="btn-primary mt-7 inline-flex items-center gap-2 bg-primary-container text-white font-bold px-7 py-3 rounded-full">
+      Subscribe on klaxo.eu <span class="material-symbols-outlined text-[18px]">notifications</span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-ink text-surface">
+  <div class="max-w-[1280px] mx-auto px-4 sm:px-8 py-16 grid gap-10 md:grid-cols-2 lg:grid-cols-5">
+    <div class="lg:col-span-2">
+      <a href="index.html" class="font-display tracking-tighter leading-none inline-flex flex-col">
+        <span class="text-2xl font-black italic uppercase text-primary-container">Klaxo</span>
+        <span class="text-[9px] font-bold tracking-[0.24em] uppercase text-surface/50 mt-0.5">Travel Tips</span>
+      </a>
+      <p class="mt-5 text-sm text-surface/60 leading-relaxed max-w-sm">Defining the next generation of premium car rentals and travel experiences across Europe. An editorial companion to <a class="text-primary-container hover:underline" href="https://www.klaxo.eu/">klaxo.eu</a>.</p>
+      <div class="mt-6 flex gap-3">
+        <a href="https://www.klaxo.eu/contact" class="grid place-items-center w-10 h-10 rounded-full border border-surface/20 hover:border-primary-container hover:text-primary-container transition" aria-label="Contact"><span class="material-symbols-outlined text-[20px]">share</span></a>
+        <a href="mailto:info@klaxo.eu" class="grid place-items-center w-10 h-10 rounded-full border border-surface/20 hover:border-primary-container hover:text-primary-container transition" aria-label="Email"><span class="material-symbols-outlined text-[20px]">mail</span></a>
+        <a href="https://www.klaxo.eu/#newsletter" class="grid place-items-center w-10 h-10 rounded-full border border-surface/20 hover:border-primary-container hover:text-primary-container transition" aria-label="Newsletter"><span class="material-symbols-outlined text-[20px]">notifications</span></a>
+        <a href="https://www.klaxo.eu/" class="grid place-items-center w-10 h-10 rounded-full border border-surface/20 hover:border-primary-container hover:text-primary-container transition" aria-label="klaxo.eu"><span class="material-symbols-outlined text-[20px]">language</span></a>
+      </div>
+    </div>
+    <div>
+      <h4 class="text-[11px] font-bold tracking-[0.24em] uppercase text-surface/50 mb-4">Navigation</h4>
+      <ul class="space-y-2.5 text-sm text-surface/75">
+        <li><a class="hover:text-primary-container transition" href="https://www.klaxo.eu/#rental">Rent a Car</a></li>
+        <li><a class="hover:text-primary-container transition" href="https://www.klaxo.eu/packages">Destinations</a></li>
+        <li><a class="hover:text-primary-container transition" href="https://www.klaxo.eu/#fleet">Fleet Guide</a></li>
+        <li><a class="hover:text-primary-container transition" href="index.html">Travel Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-[11px] font-bold tracking-[0.24em] uppercase text-surface/50 mb-4">Travel Tips</h4>
+      <ul class="space-y-2.5 text-sm text-surface/75">
+        <li><a class="hover:text-primary-container transition" href="coastal-drives.html">Coastal Drives</a></li>
+        <li><a class="hover:text-primary-container transition" href="day-trips-from-munich.html">Day Trips</a></li>
+        <li><a class="hover:text-primary-container transition" href="alpine-transfers.html">Alpine Transfers</a></li>
+        <li><a class="hover:text-primary-container transition" href="sustainable-mobility.html">Sustainable Mobility</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-[11px] font-bold tracking-[0.24em] uppercase text-surface/50 mb-4">Support</h4>
+      <ul class="space-y-2.5 text-sm text-surface/75">
+        <li><a class="hover:text-primary-container transition" href="https://www.klaxo.eu/privacy">Privacy Policy</a></li>
+        <li><a class="hover:text-primary-container transition" href="https://www.klaxo.eu/terms">Terms of Service</a></li>
+        <li><a class="hover:text-primary-container transition" href="https://www.klaxo.eu/contact">Help Center</a></li>
+        <li><a class="hover:text-primary-container transition" href="mailto:info@klaxo.eu">info@klaxo.eu</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-surface/10">
+    <div class="max-w-[1280px] mx-auto px-4 sm:px-8 py-6 flex flex-wrap items-center justify-between gap-3 text-xs text-surface/50">
+      <span class="font-display font-semibold italic uppercase tracking-[0.18em] text-surface/60">Driven by adventure.</span>
+      <span>© 2026 Klaxo Car Rentals. All rights reserved.</span>
+    </div>
+  </div>
 </footer>
-<!-- GSAP + ScrollTrigger (HeroScrub-inspired animations) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-<script src="js/animations.js" defer></script>
-</body></html>
+
+<!-- ============ WISHLIST DRAWER ============ -->
+<div id="drawerOverlay" class="fixed inset-0 z-[60] bg-ink/50 hidden"></div>
+<aside id="wishlistDrawer" class="fixed top-0 right-0 z-[70] h-full w-full max-w-sm bg-surface shadow-2xl translate-x-full transition-transform duration-300 flex flex-col" aria-label="Saved articles">
+  <div class="flex items-center justify-between p-5 border-b border-outline-variant/60">
+    <h3 class="font-display font-bold text-lg inline-flex items-center gap-2"><span class="material-symbols-outlined msi-fill text-primary-container">favorite</span>Your saved list</h3>
+    <button id="drawerClose" class="grid place-items-center w-9 h-9 rounded-full hover:bg-surface-container-low" aria-label="Close"><span class="material-symbols-outlined">close</span></button>
+  </div>
+  <div id="wishlistItems" class="flex-1 overflow-y-auto p-5 space-y-3"></div>
+  <div class="p-5 border-t border-outline-variant/60">
+    <a href="https://www.klaxo.eu/packages" class="btn-primary w-full inline-flex justify-center items-center gap-2 bg-primary-container text-white font-bold px-6 py-3 rounded-full">Book on klaxo.eu <span class="material-symbols-outlined text-[18px]">arrow_outward</span></a>
+  </div>
+</aside>
+
+<script>
+(function () {
+  /* Safe storage: persists on GitHub Pages, degrades to in-memory in sandboxed previews */
+  var mem = {};
+  var store = {
+    get: function (k) { try { return localStorage.getItem(k); } catch (e) { return mem[k] || null; } },
+    set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) { mem[k] = v; } }
+  };
+  var KEY = 'klaxo-wishlist';
+  function readList() { try { return JSON.parse(store.get(KEY)) || []; } catch (e) { return []; } }
+  function writeList(l) { store.set(KEY, JSON.stringify(l)); }
+
+  /* Wishlist hearts */
+  var countEl = document.getElementById('wishlistCount');
+  var itemsEl = document.getElementById('wishlistItems');
+  function refresh() {
+    var list = readList();
+    countEl.textContent = list.length;
+    countEl.classList.toggle('hidden', list.length === 0);
+    document.querySelectorAll('.article-card').forEach(function (card) {
+      var id = card.getAttribute('data-id');
+      var btn = card.querySelector('.heart-btn');
+      if (btn) btn.classList.toggle('saved', list.indexOf(id) !== -1);
+    });
+    if (list.length === 0) {
+      itemsEl.innerHTML = '<div class="text-center text-on-surface-variant text-sm py-12"><span class="material-symbols-outlined text-[40px] text-outline-variant block mb-3">favorite</span>Nothing saved yet.<br/>Tap the heart on any article to keep it here.</div>';
+    } else {
+      itemsEl.innerHTML = list.map(function (id) {
+        var card = document.querySelector('.article-card[data-id="' + id + '"]');
+        var title = card ? card.getAttribute('data-title') : id;
+        return '<div class="flex items-center justify-between gap-3 rounded-xl border border-outline-variant/70 bg-surface-container-lowest p-4">' +
+          '<a href="' + id + '.html" class="text-sm font-bold leading-snug hover:text-primary transition">' + title + '</a>' +
+          '<button data-remove="' + id + '" class="grid place-items-center w-8 h-8 rounded-full text-outline hover:text-primary-container hover:bg-surface-container-low shrink-0" aria-label="Remove"><span class="material-symbols-outlined text-[18px]">close</span></button></div>';
+      }).join('');
+    }
+  }
+  document.addEventListener('click', function (e) {
+    var heart = e.target.closest('.heart-btn');
+    if (heart) {
+      e.preventDefault();
+      var id = heart.closest('.article-card').getAttribute('data-id');
+      var list = readList();
+      var i = list.indexOf(id);
+      if (i === -1) list.push(id); else list.splice(i, 1);
+      writeList(list); refresh(); return;
+    }
+    var rm = e.target.closest('[data-remove]');
+    if (rm) { var l = readList().filter(function (x) { return x !== rm.getAttribute('data-remove'); }); writeList(l); refresh(); }
+  });
+
+  /* Drawer */
+  var drawer = document.getElementById('wishlistDrawer');
+  var overlay = document.getElementById('drawerOverlay');
+  function openDrawer(open) {
+    drawer.classList.toggle('translate-x-full', !open);
+    overlay.classList.toggle('hidden', !open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  document.getElementById('wishlistBtn').addEventListener('click', function () { refresh(); openDrawer(true); });
+  document.getElementById('drawerClose').addEventListener('click', function () { openDrawer(false); });
+  overlay.addEventListener('click', function () { openDrawer(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') openDrawer(false); });
+
+  /* Filters */
+  var pills = document.querySelectorAll('.pill');
+  pills.forEach(function (pill) {
+    pill.addEventListener('click', function () {
+      pills.forEach(function (p) { p.classList.remove('active'); });
+      pill.classList.add('active');
+      var f = pill.getAttribute('data-filter');
+      document.querySelectorAll('.article-card').forEach(function (card) {
+        var cat = card.getAttribute('data-cat');
+        card.style.display = (f === 'all' || cat === f || cat === 'all') ? '' : 'none';
+      });
+    });
+  });
+
+  /* Mobile menu */
+  document.getElementById('menuBtn').addEventListener('click', function () {
+    document.getElementById('mobileMenu').classList.toggle('hidden');
+  });
+
+  /* Scroll reveal */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+  }
+
+  refresh();
+})();
+</script>
+</body>
+</html>
