@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://delviss.github.io/KLAXO-Blog/sitemap.xml
