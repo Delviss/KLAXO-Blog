@@ -94,6 +94,11 @@
   .no-scrollbar::-webkit-scrollbar { display:none; }
   .no-scrollbar { -ms-overflow-style:none; scrollbar-width:none; }
 
+  /* ---- Lenis smooth scroll (sticky-scroll gallery) ---- */
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-stopped { overflow: hidden; }
+
   @media (prefers-reduced-motion: reduce) {
     .ticker-track { animation: none; }
     .reveal { opacity:1; transform:none; transition:none; }
@@ -334,6 +339,89 @@
         <span class="mt-auto pt-6 inline-flex items-center gap-2 text-sm font-bold text-primary-container">About this blog <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition">arrow_forward</span></span>
       </div>
     </article>
+  </div>
+</section>
+
+<!-- ============ PHOTO GALLERY — STICKY SCROLL (vanilla port of components/ui/sticky-scroll.tsx) ============ -->
+<section class="bg-ink text-surface" data-sticky-gallery>
+  <div class="wrapper">
+    <div class="h-screen w-full grid place-content-center sticky top-0 overflow-hidden hero-grid">
+      <div class="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:54px_54px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+      <div class="relative flex items-center justify-center gap-3 mb-6">
+        <span class="speed-line"></span>
+        <span class="text-[11px] font-bold tracking-[0.28em] uppercase text-primary-container">The Klaxo Gallery</span>
+      </div>
+      <h2 class="relative font-display 2xl:text-7xl text-4xl sm:text-5xl px-8 font-semibold text-center tracking-tight leading-[120%]">
+        Postcards from the road
+        <br/>
+        Bavaria through our windshield
+        <br/>
+        Scroll down! 👇
+      </h2>
+    </div>
+  </div>
+
+  <div class="w-full px-2">
+    <div class="grid grid-cols-12 gap-2">
+      <div class="grid gap-2 col-span-4">
+        <figure class="w-full">
+          <img src="https://github.com/user-attachments/assets/f71f9688-7a15-4a67-88b3-2e48d79e570a" alt="Klaxo travel photography — on the road across Bavaria" loading="lazy" class="transition-all duration-300 w-full h-48 sm:h-72 md:h-96 align-bottom object-cover rounded-md"/>
+        </figure>
+        <figure class="w-full">
+          <img src="https://github.com/user-attachments/assets/bd299691-4839-4aea-8f89-e594ba78c7aa" alt="Klaxo travel photography — scenic driving routes" loading="lazy" class="transition-all duration-300 w-full h-48 sm:h-72 md:h-96 align-bottom object-cover rounded-md"/>
+        </figure>
+        <figure class="w-full">
+          <img src="https://github.com/user-attachments/assets/d577c4e7-5ec6-4f3d-b2b9-edf953d7222c" alt="Klaxo travel photography — destinations from our trips" loading="lazy" class="transition-all duration-300 w-full h-48 sm:h-72 md:h-96 align-bottom object-cover rounded-md"/>
+        </figure>
+        <figure class="w-full">
+          <img src="https://github.com/user-attachments/assets/2f0950b5-779b-4c01-b274-ea3c47200ce5" alt="Klaxo travel photography — moments from the journey" loading="lazy" class="transition-all duration-300 w-full h-48 sm:h-72 md:h-96 align-bottom object-cover rounded-md"/>
+        </figure>
+        <figure class="w-full">
+          <img src="https://github.com/user-attachments/assets/e5deec6b-4023-430e-9ff2-54232153fbc7" alt="Klaxo travel photography — exploring with the Klaxo fleet" loading="lazy" class="transition-all duration-300 w-full h-48 sm:h-72 md:h-96 align-bottom object-cover rounded-md"/>
+        </figure>
+      </div>
+      <div class="sticky top-0 h-screen w-full col-span-4 gap-2 grid grid-rows-3">
+        <figure class="w-full h-full">
+          <img src="https://github.com/user-attachments/assets/9527e185-7e6a-4068-8c5c-06d8c8afb490" alt="Klaxo travel photography — highlight from the road" loading="lazy" class="transition-all duration-300 h-full w-full align-bottom object-cover rounded-md"/>
+        </figure>
+        <figure class="w-full h-full">
+          <img src="https://github.com/user-attachments/assets/65154810-95eb-424d-865a-d453838daf61" alt="Klaxo travel photography — highlight from the road" loading="lazy" class="transition-all duration-300 h-full w-full align-bottom object-cover rounded-md"/>
+        </figure>
+        <figure class="w-full h-full">
+          <img src="https://github.com/user-attachments/assets/60d0d484-ed1b-4ad1-a9e3-49b9d3fb7152" alt="Klaxo travel photography — highlight from the road" loading="lazy" class="transition-all duration-300 h-full w-full align-bottom object-cover rounded-md"/>
+        </figure>
+      </div>
+      <div class="grid gap-2 col-span-4">
+        <figure class="w-full">
+          <img src="https://github.com/user-attachments/assets/cab96c52-1491-4fc8-b001-452c9e61f049" alt="Klaxo travel photography — alpine views along the way" loading="lazy" class="transition-all duration-300 w-full h-48 sm:h-72 md:h-96 align-bottom object-cover rounded-md"/>
+        </figure>
+        <figure class="w-full">
+          <img src="https://github.com/user-attachments/assets/1e18ab85-4cbd-4df6-bae0-ab52a3688a0b" alt="Klaxo travel photography — stops worth the detour" loading="lazy" class="transition-all duration-300 w-full h-48 sm:h-72 md:h-96 align-bottom object-cover rounded-md"/>
+        </figure>
+        <figure class="w-full">
+          <img src="https://github.com/user-attachments/assets/f2d51fe7-836d-454e-9735-7cf35345d5db" alt="Klaxo travel photography — travel moments in portrait" loading="lazy" class="transition-all duration-300 w-full h-48 sm:h-72 md:h-96 align-bottom object-cover rounded-md"/>
+        </figure>
+        <figure class="w-full">
+          <img src="https://github.com/user-attachments/assets/08441faf-831c-46d5-994a-9dad6a1d81fc" alt="Klaxo travel photography — scenes from our destinations" loading="lazy" class="transition-all duration-300 w-full h-48 sm:h-72 md:h-96 align-bottom object-cover rounded-md"/>
+        </figure>
+        <figure class="w-full">
+          <img src="https://github.com/user-attachments/assets/8b0b3263-bb15-4a3f-b1da-2d1a8153ebf1" alt="Klaxo travel photography — the road ahead" loading="lazy" class="transition-all duration-300 w-full h-48 sm:h-72 md:h-96 align-bottom object-cover rounded-md"/>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA: Klaxo Packages -->
+  <div class="relative z-10 bg-ink py-16 sm:py-24 px-4 sm:px-8 text-center">
+    <div class="flex items-center justify-center gap-3 mb-4">
+      <span class="speed-line"></span>
+      <span class="text-[11px] font-bold tracking-[0.28em] uppercase text-primary-container">Ready for your own story?</span>
+    </div>
+    <h2 class="font-display font-bold text-3xl sm:text-[40px] leading-tight tracking-tight mb-4">See these roads for yourself</h2>
+    <p class="text-surface/70 leading-relaxed max-w-2xl mx-auto mb-8">Every photo above was taken on a Klaxo trip. Pick a curated travel package and make the next one yours.</p>
+    <a href="https://www.klaxo.eu/packages" class="btn-primary inline-flex items-center gap-2 bg-primary-container text-white font-bold text-sm px-8 py-4 rounded-full">
+      Explore Travel Packages <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+    </a>
   </div>
 </section>
 
@@ -649,5 +737,14 @@
 })();
 </script>
 <script src="js/google-reviews.js" defer></script>
+<!-- Lenis smooth scroll — vanilla equivalent of the sticky-scroll component's <ReactLenis root> -->
+<script src="https://unpkg.com/lenis@1/dist/lenis.min.js" defer></script>
+<script>
+  window.addEventListener("load", function () {
+    if (!window.Lenis) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    new window.Lenis({ autoRaf: true });
+  });
+</script>
 </body>
 </html>
