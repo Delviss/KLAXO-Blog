@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Sign in · Klaxo Admin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex, nofollow"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style> body { font-family: 'Plus Jakarta Sans', sans-serif; } .font-display { font-family: 'Space Grotesk', sans-serif; } </style>
+</head>
+<body class="min-h-screen bg-zinc-950 flex items-center justify-center px-4">
+<div class="w-full max-w-sm">
+  <div class="text-center mb-8">
+    <span class="font-display text-4xl font-black italic uppercase text-orange-500">Klaxo</span>
+    <p class="text-[11px] font-bold tracking-[0.25em] uppercase text-zinc-400 mt-1">Admin Dashboard</p>
+  </div>
+  <div class="bg-white rounded-2xl shadow-xl p-7">
+    <h1 class="font-display text-2xl font-bold text-zinc-900 mb-1">Sign in</h1>
+    <p class="text-sm text-zinc-500 mb-6">Access the Klaxo blog dashboard.</p>
+    <% if (error) { %>
+    <div class="mb-4 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm px-4 py-3"><%= error %></div>
+    <% } %>
+    <form method="post" action="/admin/login" class="space-y-4">
+      <input type="hidden" name="_csrf" value="<%= typeof csrfToken !== 'undefined' ? csrfToken : '' %>"/>
+      <input type="hidden" name="next" value="<%= next %>"/>
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wide text-zinc-500 mb-1.5" for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="username" required autofocus
+          class="w-full rounded-lg border-zinc-300 focus:border-orange-500 focus:ring-orange-500"/>
+      </div>
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wide text-zinc-500 mb-1.5" for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required
+          class="w-full rounded-lg border-zinc-300 focus:border-orange-500 focus:ring-orange-500"/>
+      </div>
+      <button type="submit"
+        class="w-full bg-orange-500 hover:bg-orange-600 text-white font-display font-bold uppercase tracking-tight py-3 rounded-lg transition">
+        Sign in
+      </button>
+    </form>
+  </div>
+  <p class="text-center text-xs text-zinc-600 mt-6">Klaxo Travel Tips · Munich, Bavaria</p>
+</div>
+</body>
+</html>

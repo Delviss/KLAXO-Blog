@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+<meta charset="utf-8"/>
+<title><%= typeof title !== 'undefined' ? title + ' · Klaxo Admin' : 'Klaxo Admin' %></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex, nofollow"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: { primary: '#ff8c00', 'primary-dark': '#904d00', ink: '#241912', surface: '#fff8f5', 'surface-2': '#fff1e9' },
+      fontFamily: { display: ['Space Grotesk','sans-serif'], body: ['Plus Jakarta Sans','sans-serif'] },
+    } },
+  };
+</script>
+<style>
+  body { font-family: 'Plus Jakarta Sans', sans-serif; }
+  .font-display { font-family: 'Space Grotesk', sans-serif; }
+  .nav-link.active { background: #fff1e9; color: #904d00; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+</style>
+</head>
+<body class="bg-surface text-ink min-h-screen">
+<% var path = (typeof currentPath !== 'undefined' ? currentPath : '/'); %>
+<% var user = (typeof user !== 'undefined' ? user : null); %>
+<div class="flex min-h-screen">
+  <!-- Sidebar -->
+  <aside class="hidden md:flex md:flex-col w-64 bg-white border-r border-zinc-200 shrink-0">
+    <div class="px-5 py-5 border-b border-zinc-200">
+      <a href="/admin" class="font-display tracking-tighter leading-none flex flex-col">
+        <span class="text-2xl font-black italic uppercase text-primary">Klaxo</span>
+        <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-500 mt-0.5">Admin Dashboard</span>
+      </a>
+    </div>
+    <nav class="flex-1 p-3 space-y-1 text-sm font-semibold">
+      <a href="/admin" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-surface-2 <%= path === '/' ? 'active' : '' %>"><span class="material-symbols-outlined text-primary">dashboard</span>Dashboard</a>
+      <a href="/admin/articles" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-surface-2 <%= path.indexOf('/articles') === 0 ? 'active' : '' %>"><span class="material-symbols-outlined text-primary">article</span>Articles</a>
+      <a href="/admin/articles/new" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-surface-2"><span class="material-symbols-outlined text-primary">add_circle</span>New article</a>
+      <a href="/admin/analytics" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-surface-2 <%= path.indexOf('/analytics') === 0 ? 'active' : '' %>"><span class="material-symbols-outlined text-primary">insights</span>Analytics</a>
+    </nav>
+    <div class="p-3 border-t border-zinc-200">
+      <% if (user) { %>
+      <p class="px-3 text-xs text-zinc-500 mb-2 truncate"><%= user.email %></p>
+      <form method="post" action="/admin/logout">
+        <input type="hidden" name="_csrf" value="<%= typeof csrfToken !== 'undefined' ? csrfToken : '' %>"/>
+        <button class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-surface-2 text-zinc-700"><span class="material-symbols-outlined">logout</span>Sign out</button>
+      </form>
+      <% } %>
+    </div>
+  </aside>
+  <!-- Main -->
+  <div class="flex-1 min-w-0 flex flex-col">
+    <header class="md:hidden flex items-center justify-between bg-white border-b border-zinc-200 px-4 py-3">
+      <a href="/admin" class="font-display text-xl font-black italic uppercase text-primary">Klaxo</a>
+      <div class="flex gap-2 text-sm">
+        <a href="/admin/articles" class="px-3 py-1.5 rounded-lg hover:bg-surface-2">Articles</a>
+        <a href="/admin/analytics" class="px-3 py-1.5 rounded-lg hover:bg-surface-2">Analytics</a>
+      </div>
+    </header>
+    <main class="flex-1 p-4 sm:p-6 lg:p-8 max-w-6xl w-full mx-auto">
