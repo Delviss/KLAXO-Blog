@@ -1,0 +1,67 @@
+<%- include('partials/head') %>
+<div class="flex items-center justify-between mb-6">
+  <div>
+    <h1 class="font-display text-3xl font-bold">Dashboard</h1>
+    <p class="text-zinc-500 text-sm mt-1">Klaxo Travel Tips · content & analytics</p>
+  </div>
+  <a href="/admin/articles/new" class="inline-flex items-center gap-2 bg-primary hover:bg-orange-600 text-white font-display font-bold uppercase text-sm tracking-tight px-4 py-2.5 rounded-lg transition">
+    <span class="material-symbols-outlined text-base">add</span> New article
+  </a>
+</div>
+
+<% if (!githubConfigured) { %>
+<div class="mb-6 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 px-4 py-3 text-sm flex items-start gap-2">
+  <span class="material-symbols-outlined text-base">warning</span>
+  <span><strong>Publishing is not configured.</strong> Set <code>GITHUB_TOKEN</code> (contents:write) so the dashboard can commit generated HTML to the Pages repo.</span>
+</div>
+<% } %>
+
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+  <div class="bg-white border border-zinc-200 rounded-xl p-5">
+    <p class="text-xs font-semibold uppercase tracking-wide text-zinc-500">Published</p>
+    <p class="font-display text-3xl font-bold mt-1"><%= counts.published %></p>
+  </div>
+  <div class="bg-white border border-zinc-200 rounded-xl p-5">
+    <p class="text-xs font-semibold uppercase tracking-wide text-zinc-500">Drafts</p>
+    <p class="font-display text-3xl font-bold mt-1"><%= counts.drafts %></p>
+  </div>
+  <div class="bg-white border border-zinc-200 rounded-xl p-5">
+    <p class="text-xs font-semibold uppercase tracking-wide text-zinc-500">Pageviews · 7d</p>
+    <p class="font-display text-3xl font-bold mt-1"><%= overview.pageviews %></p>
+  </div>
+  <div class="bg-white border border-zinc-200 rounded-xl p-5">
+    <p class="text-xs font-semibold uppercase tracking-wide text-zinc-500">Visitors · 7d</p>
+    <p class="font-display text-3xl font-bold mt-1"><%= overview.visitors %></p>
+  </div>
+</div>
+
+<% if (counts.failed > 0) { %>
+<div class="mb-6 rounded-xl bg-red-50 border border-red-200 text-red-700 px-4 py-3 text-sm">
+  <%= counts.failed %> article(s) failed to publish. Open them to retry.
+</div>
+<% } %>
+
+<div class="bg-white border border-zinc-200 rounded-xl overflow-hidden">
+  <div class="flex items-center justify-between px-5 py-4 border-b border-zinc-200">
+    <h2 class="font-display font-bold text-lg">Recent articles</h2>
+    <a href="/admin/articles" class="text-sm text-primary-dark font-semibold hover:underline">View all</a>
+  </div>
+  <% if (recent.length === 0) { %>
+    <p class="px-5 py-8 text-center text-zinc-500 text-sm">No articles yet. <a href="/admin/articles/new" class="text-primary-dark font-semibold">Write your first one →</a></p>
+  <% } else { %>
+  <ul class="divide-y divide-zinc-100">
+    <% recent.forEach(function(a){ %>
+    <li class="flex items-center gap-4 px-5 py-3.5">
+      <span class="material-symbols-outlined text-zinc-300"><%= a.status === 'published' ? 'public' : 'edit_note' %></span>
+      <div class="min-w-0 flex-1">
+        <a href="/admin/articles/<%= a.id %>/edit" class="font-semibold text-zinc-900 hover:text-primary-dark truncate block"><%= a.title %></a>
+        <p class="text-xs text-zinc-500"><%= a.category %></p>
+      </div>
+      <span class="text-[11px] font-bold uppercase px-2 py-1 rounded <%= a.status === 'published' ? 'bg-green-100 text-green-700' : 'bg-zinc-100 text-zinc-600' %>"><%= a.status %></span>
+      <% if (a.publish_state === 'publish_failed') { %><span class="text-[11px] font-bold uppercase px-2 py-1 rounded bg-red-100 text-red-700">failed</span><% } %>
+    </li>
+    <% }) %>
+  </ul>
+  <% } %>
+</div>
+<%- include('partials/foot') %>
