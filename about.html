@@ -100,18 +100,16 @@
 <input type="search" placeholder="Search for a place or guide" class="flex-1 bg-transparent outline-none placeholder:text-zinc-500 text-zinc-900 font-['Plus_Jakarta_Sans']" aria-label="Search for a place or guide"/>
 </form>
 <div class="flex items-center gap-1 shrink-0">
-<button class="hidden md:flex w-10 h-10 rounded-full hover:bg-zinc-100 items-center justify-center transition" aria-label="Change language" type="button">
-<span class="material-symbols-outlined text-zinc-700">language</span>
+<button id="wishlistBtn" data-wishlist-open class="relative hidden md:flex w-10 h-10 rounded-full hover:bg-zinc-100 items-center justify-center transition" aria-label="Saved guides" title="Your saved list" type="button">
+<span class="material-symbols-outlined text-zinc-700">favorite</span>
+<span data-wishlist-count class="klx-wh-badge klx-hidden">0</span>
 </button>
-<button class="hidden md:flex w-10 h-10 rounded-full hover:bg-zinc-100 items-center justify-center transition" aria-label="Saved guides" type="button">
-<span class="material-symbols-outlined text-zinc-700">bookmark</span>
-</button>
-<button class="hidden md:flex items-center gap-2 border border-zinc-300 rounded-full pl-3 pr-1 py-1 ml-1 hover:shadow-md transition" aria-label="Account menu" type="button">
-<span class="material-symbols-outlined text-zinc-700 text-lg">menu</span>
+<a href="admin/" class="hidden md:flex items-center gap-2 border border-zinc-300 rounded-full pl-3 pr-1 py-1 ml-1 hover:shadow-md transition" aria-label="Login to admin" title="Login to admin">
+<span class="text-xs font-bold uppercase text-zinc-700 font-['Space_Grotesk'] tracking-wide pl-1">Admin</span>
 <span class="w-8 h-8 rounded-full bg-zinc-200 flex items-center justify-center">
-<span class="material-symbols-outlined text-zinc-600 text-lg">person</span>
+<span class="material-symbols-outlined text-zinc-600 text-lg">login</span>
 </span>
-</button>
+</a>
 <button id="mobile-menu-btn" class="md:hidden flex items-center gap-2 border border-zinc-300 rounded-full pl-3 pr-1 py-1 hover:shadow-md transition" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu" type="button">
 <span id="mobile-menu-icon" class="material-symbols-outlined text-zinc-700 text-lg">menu</span>
 <span class="w-8 h-8 rounded-full bg-zinc-200 flex items-center justify-center">
@@ -146,19 +144,16 @@
 <span class="font-['Space_Grotesk'] font-semibold text-zinc-800">About</span>
 </a>
 </nav>
-<div class="border-t border-zinc-200 pt-3 grid grid-cols-3 gap-2">
-<button class="flex flex-col items-center gap-1 py-2 rounded-lg hover:bg-zinc-100 text-zinc-700 transition" aria-label="Change language" type="button">
-<span class="material-symbols-outlined">language</span>
-<span class="text-[11px] font-semibold font-['Space_Grotesk']">Language</span>
-</button>
-<button class="flex flex-col items-center gap-1 py-2 rounded-lg hover:bg-zinc-100 text-zinc-700 transition" aria-label="Saved guides" type="button">
-<span class="material-symbols-outlined">bookmark</span>
+<div class="border-t border-zinc-200 pt-3 grid grid-cols-2 gap-2">
+<button data-wishlist-open class="relative flex flex-col items-center gap-1 py-2 rounded-lg hover:bg-zinc-100 text-zinc-700 transition" aria-label="Saved guides" type="button">
+<span class="material-symbols-outlined">favorite</span>
 <span class="text-[11px] font-semibold font-['Space_Grotesk']">Saved</span>
+<span data-wishlist-count class="klx-wh-badge klx-hidden">0</span>
 </button>
-<button class="flex flex-col items-center gap-1 py-2 rounded-lg hover:bg-zinc-100 text-zinc-700 transition" aria-label="Account" type="button">
-<span class="material-symbols-outlined">person</span>
-<span class="text-[11px] font-semibold font-['Space_Grotesk']">Account</span>
-</button>
+<a href="admin/" class="flex flex-col items-center gap-1 py-2 rounded-lg hover:bg-zinc-100 text-zinc-700 transition" aria-label="Login to admin">
+<span class="material-symbols-outlined">login</span>
+<span class="text-[11px] font-semibold font-['Space_Grotesk']">Admin</span>
+</a>
 </div>
 <a href="https://www.klaxo.eu/rental/" class="block w-full text-center bg-primary-container text-white font-['Space_Grotesk'] font-bold tracking-tighter uppercase px-4 py-3 rounded-full btn-premium-transition">
                     Rent Now
@@ -355,4 +350,25 @@
 <script src="js/animations.js" defer></script>
 <script src="js/google-reviews.js" defer></script>
 <script src="js/klaxo-lang.js" defer></script>
+<script src="js/klaxo-wishlist.js" defer></script>
+<script>
+  (function () {
+    var btn = document.getElementById('mobile-menu-btn');
+    var menu = document.getElementById('mobile-menu');
+    var icon = document.getElementById('mobile-menu-icon');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function () {
+      var open = menu.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (icon) icon.textContent = open ? 'close' : 'menu';
+    });
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+        if (icon) icon.textContent = 'menu';
+      });
+    });
+  })();
+</script>
 </body></html>
