@@ -1,0 +1,38 @@
+# Jekyll configuration for the Klaxo Travel Tips blog.
+#
+# The existing hand-built pages (index.html, about.html, the article pages)
+# have no YAML front matter, so Jekyll copies them through untouched. Only
+# files with front matter (the new CMS-authored posts, the blog index and the
+# layouts) are processed. Posts published from the /admin dashboard land as
+# flat .html files at the site root — exactly like the existing articles — so
+# every internal link stays relative and works no matter what URL the site is
+# served from (delviss.github.io/KLAXO-Blog, a custom domain, etc.).
+
+title: Klaxo Travel Tips
+description: Premium driving & travel stories from Bavaria.
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+# Posts render as /<slug>.html at the site root, matching alpine-transfers.html etc.
+permalink: /:title:output_ext
+
+# Every post automatically uses the post layout — the author never sets it.
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+# Keep tooling and docs out of the published site.
+exclude:
+  - README.md
+  - ADMIN-SETUP.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .github
+  - node_modules

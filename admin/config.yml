@@ -1,0 +1,58 @@
+# ============================================================================
+# Klaxo content manager configuration (Sveltia CMS / Decap-compatible)
+# ============================================================================
+#
+# You log in here with your GitHub account. When you publish, the CMS commits
+# the post to the repository below and the site rebuilds automatically.
+#
+# BEFORE THIS WORKS you must do two one-time setup steps (see ADMIN-SETUP.md):
+#   1. Create a GitHub OAuth app.
+#   2. Deploy the free "sveltia-cms-auth" login relay and paste its URL into
+#      `base_url` just below (replace the placeholder).
+
+backend:
+  name: github
+  repo: Delviss/KLAXO-Blog        # owner/repository — must match your GitHub repo
+  branch: main                    # posts publish to main, which deploys the site
+  # ▼▼▼ REPLACE the placeholder with your deployed login-relay URL ▼▼▼
+  base_url: https://REPLACE-WITH-YOUR-AUTH-WORKER.workers.dev
+  # ▲▲▲ e.g. https://sveltia-cms-auth.yourname.workers.dev ▲▲▲
+
+# Show a live "Editorial Workflow" is off by default — posts publish immediately.
+publish_mode: simple
+
+# Where uploaded images are stored in the repo, and the path written into posts.
+# The public path is kept relative on purpose so images resolve correctly no
+# matter what URL the site is served from.
+media_folder: "assets/uploads"
+public_folder: "assets/uploads"
+
+# A friendly logo/name on the login screen.
+site_url: https://www.klaxo.eu
+logo_url: https://www.klaxo.eu/favicon.ico
+
+collections:
+  - name: posts
+    label: "Blog Posts"
+    label_singular: "Blog Post"
+    description: "Write and publish articles to the Klaxo Journal."
+    folder: "_posts"
+    create: true
+    # File name: 2026-07-09-my-post-title.md — the date + a slug from the title.
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}}  ·  {{year}}-{{month}}-{{day}}"
+    sortable_fields: ["date", "title"]
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        required: false
+        options: ["News", "Day Trips", "Alpine Transfers", "Coastal Drives", "Sustainable Mobility", "Group Travel", "Rental Tips"]
+      - { label: "Read time", name: "read_time", widget: "string", required: false, hint: "For example: 5 Min Read" }
+      - { label: "Author", name: "author", widget: "string", required: false, default: "Daniel (Klaxo Team)" }
+      - { label: "Summary", name: "summary", widget: "text", required: false, hint: "One or two sentences shown under the title and on the Journal cards." }
+      - { label: "Cover image", name: "hero_image", widget: "image", required: false, hint: "Large image at the top of the article and on its card." }
+      - { label: "Cover image alt text", name: "hero_alt", widget: "string", required: false, hint: "Describe the image for accessibility and SEO." }
+      - { label: "Body", name: "body", widget: "markdown" }
