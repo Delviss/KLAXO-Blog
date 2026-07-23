@@ -79,11 +79,15 @@
 <span class="material-symbols-outlined text-primary-container">tips_and_updates</span>
 <span class="font-['Space_Grotesk'] font-semibold text-zinc-800">Travel Tips</span>
 </a>
+<a href="travel-blog.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-zinc-50">
+<span class="material-symbols-outlined text-primary-container">menu_book</span>
+<span class="font-['Space_Grotesk'] font-semibold text-zinc-800">Travel Blog</span>
+</a>
 <a href="https://www.klaxo.eu/packages" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-zinc-50">
 <span class="material-symbols-outlined text-primary-container">map</span>
 <span class="font-['Space_Grotesk'] font-semibold text-zinc-800">Destinations</span>
 </a>
-<a href="https://www.klaxo.eu/#fleet" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-zinc-50">
+<a href="https://www.klaxo.eu/vehicles" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-zinc-50">
 <span class="material-symbols-outlined text-primary-container">explore</span>
 <span class="font-['Space_Grotesk'] font-semibold text-zinc-800">Explore the Fleet</span>
 </a>
@@ -100,18 +104,16 @@
 <input type="search" placeholder="Search for a place or guide" class="flex-1 bg-transparent outline-none placeholder:text-zinc-500 text-zinc-900 font-['Plus_Jakarta_Sans']" aria-label="Search for a place or guide"/>
 </form>
 <div class="flex items-center gap-1 shrink-0">
-<button class="hidden md:flex w-10 h-10 rounded-full hover:bg-zinc-100 items-center justify-center transition" aria-label="Change language" type="button">
-<span class="material-symbols-outlined text-zinc-700">language</span>
+<button id="wishlistBtn" data-wishlist-open class="relative hidden md:flex w-10 h-10 rounded-full hover:bg-zinc-100 items-center justify-center transition" aria-label="Saved guides" title="Your saved list" type="button">
+<span class="material-symbols-outlined text-zinc-700">favorite</span>
+<span data-wishlist-count class="klx-wh-badge klx-hidden">0</span>
 </button>
-<button class="hidden md:flex w-10 h-10 rounded-full hover:bg-zinc-100 items-center justify-center transition" aria-label="Saved guides" type="button">
-<span class="material-symbols-outlined text-zinc-700">bookmark</span>
-</button>
-<button class="hidden md:flex items-center gap-2 border border-zinc-300 rounded-full pl-3 pr-1 py-1 ml-1 hover:shadow-md transition" aria-label="Account menu" type="button">
-<span class="material-symbols-outlined text-zinc-700 text-lg">menu</span>
+<a href="admin/" class="hidden md:flex items-center gap-2 border border-zinc-300 rounded-full pl-3 pr-1 py-1 ml-1 hover:shadow-md transition" aria-label="Login to admin" title="Login to admin">
+<span class="text-xs font-bold uppercase text-zinc-700 font-['Space_Grotesk'] tracking-wide pl-1">Admin</span>
 <span class="w-8 h-8 rounded-full bg-zinc-200 flex items-center justify-center">
-<span class="material-symbols-outlined text-zinc-600 text-lg">person</span>
+<span class="material-symbols-outlined text-zinc-600 text-lg">login</span>
 </span>
-</button>
+</a>
 <button id="mobile-menu-btn" class="md:hidden flex items-center gap-2 border border-zinc-300 rounded-full pl-3 pr-1 py-1 hover:shadow-md transition" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu" type="button">
 <span id="mobile-menu-icon" class="material-symbols-outlined text-zinc-700 text-lg">menu</span>
 <span class="w-8 h-8 rounded-full bg-zinc-200 flex items-center justify-center">
@@ -133,11 +135,15 @@
 <span class="material-symbols-outlined text-primary-container">tips_and_updates</span>
 <span class="font-['Space_Grotesk'] font-semibold text-zinc-800">Travel Tips</span>
 </a>
+<a href="travel-blog.html" class="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-zinc-50 active:bg-zinc-100">
+<span class="material-symbols-outlined text-primary-container">menu_book</span>
+<span class="font-['Space_Grotesk'] font-semibold text-zinc-800">Travel Blog</span>
+</a>
 <a href="https://www.klaxo.eu/packages" class="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-zinc-50 active:bg-zinc-100">
 <span class="material-symbols-outlined text-primary-container">map</span>
 <span class="font-['Space_Grotesk'] font-semibold text-zinc-800">Destinations</span>
 </a>
-<a href="https://www.klaxo.eu/#fleet" class="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-zinc-50 active:bg-zinc-100">
+<a href="https://www.klaxo.eu/vehicles" class="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-zinc-50 active:bg-zinc-100">
 <span class="material-symbols-outlined text-primary-container">explore</span>
 <span class="font-['Space_Grotesk'] font-semibold text-zinc-800">Explore the Fleet</span>
 </a>
@@ -146,21 +152,18 @@
 <span class="font-['Space_Grotesk'] font-semibold text-zinc-800">About</span>
 </a>
 </nav>
-<div class="border-t border-zinc-200 pt-3 grid grid-cols-3 gap-2">
-<button class="flex flex-col items-center gap-1 py-2 rounded-lg hover:bg-zinc-100 text-zinc-700 transition" aria-label="Change language" type="button">
-<span class="material-symbols-outlined">language</span>
-<span class="text-[11px] font-semibold font-['Space_Grotesk']">Language</span>
-</button>
-<button class="flex flex-col items-center gap-1 py-2 rounded-lg hover:bg-zinc-100 text-zinc-700 transition" aria-label="Saved guides" type="button">
-<span class="material-symbols-outlined">bookmark</span>
+<div class="border-t border-zinc-200 pt-3 grid grid-cols-2 gap-2">
+<button data-wishlist-open class="relative flex flex-col items-center gap-1 py-2 rounded-lg hover:bg-zinc-100 text-zinc-700 transition" aria-label="Saved guides" type="button">
+<span class="material-symbols-outlined">favorite</span>
 <span class="text-[11px] font-semibold font-['Space_Grotesk']">Saved</span>
+<span data-wishlist-count class="klx-wh-badge klx-hidden">0</span>
 </button>
-<button class="flex flex-col items-center gap-1 py-2 rounded-lg hover:bg-zinc-100 text-zinc-700 transition" aria-label="Account" type="button">
-<span class="material-symbols-outlined">person</span>
-<span class="text-[11px] font-semibold font-['Space_Grotesk']">Account</span>
-</button>
+<a href="admin/" class="flex flex-col items-center gap-1 py-2 rounded-lg hover:bg-zinc-100 text-zinc-700 transition" aria-label="Login to admin">
+<span class="material-symbols-outlined">login</span>
+<span class="text-[11px] font-semibold font-['Space_Grotesk']">Admin</span>
+</a>
 </div>
-<a href="https://www.klaxo.eu/#rental" class="block w-full text-center bg-primary-container text-white font-['Space_Grotesk'] font-bold tracking-tighter uppercase px-4 py-3 rounded-full btn-premium-transition">
+<a href="https://www.klaxo.eu/rental/" class="block w-full text-center bg-primary-container text-white font-['Space_Grotesk'] font-bold tracking-tighter uppercase px-4 py-3 rounded-full btn-premium-transition">
                     Rent Now
                 </a>
 </div>
@@ -205,12 +208,12 @@
 <h3 class="font-headline-md text-lg sm:text-xl md:text-headline-md mb-2">Destinations</h3>
 <p class="text-on-surface-variant text-sm">Curated sightseeing packages from klaxo.eu.</p>
 </a>
-<a href="https://www.klaxo.eu/#rental" class="block p-5 sm:p-6 bg-surface-container-low rounded-xl border border-outline-variant hover:border-primary-container transition">
+<a href="https://www.klaxo.eu/rental/" class="block p-5 sm:p-6 bg-surface-container-low rounded-xl border border-outline-variant hover:border-primary-container transition">
 <span class="material-symbols-outlined text-primary-container text-3xl mb-3">directions_car</span>
 <h3 class="font-headline-md text-lg sm:text-xl md:text-headline-md mb-2">Rent a Car</h3>
 <p class="text-on-surface-variant text-sm">Browse the Klaxo premium rental fleet.</p>
 </a>
-<a href="https://www.klaxo.eu/#fleet" class="block p-5 sm:p-6 bg-surface-container-low rounded-xl border border-outline-variant hover:border-primary-container transition">
+<a href="https://www.klaxo.eu/vehicles" class="block p-5 sm:p-6 bg-surface-container-low rounded-xl border border-outline-variant hover:border-primary-container transition">
 <span class="material-symbols-outlined text-primary-container text-3xl mb-3">garage</span>
 <h3 class="font-headline-md text-lg sm:text-xl md:text-headline-md mb-2">Fleet Guide</h3>
 <p class="text-on-surface-variant text-sm">Compare vehicles for your next adventure.</p>
@@ -229,7 +232,7 @@
 <div class="bg-primary-container p-6 sm:p-8 rounded-xl text-white">
 <h4 class="font-headline-md text-xl sm:text-2xl md:text-headline-md mb-3 leading-tight">Ready to drive?</h4>
 <p class="text-white/90 mb-5 sm:mb-6 text-sm sm:text-base">Reserve your premium rental directly at klaxo.eu.</p>
-<a href="https://www.klaxo.eu/#rental" class="block w-full bg-zinc-900 text-white py-3 rounded text-center font-label-bold text-label-bold uppercase btn-premium-transition">Rent Now</a>
+<a href="https://www.klaxo.eu/rental/" class="block w-full bg-zinc-900 text-white py-3 rounded text-center font-label-bold text-label-bold uppercase btn-premium-transition">Rent Now</a>
 </div>
 <div class="bg-white border border-outline-variant p-5 sm:p-6 rounded-xl">
 <h4 class="font-headline-md text-xl sm:text-2xl md:text-headline-md mb-3">Get in touch</h4>
@@ -241,111 +244,68 @@
 </main>
 
 <!-- Footer -->
-<footer class="bg-zinc-950 mt-12 sm:mt-16 w-full pt-10 sm:pt-16 pb-6 border-t-8 border-zinc-900 rounded-t-xl">
-<div class="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-<div class="grid grid-cols-1 gap-10 sm:gap-12 lg:grid-cols-3">
+<footer class="bg-zinc-950 mt-12 sm:mt-16 w-full border-t-8 border-orange-500/90 rounded-t-2xl overflow-hidden">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 pt-12 sm:pt-16 pb-8">
+<div class="grid grid-cols-1 gap-10 lg:gap-12 lg:grid-cols-3">
 <!-- Brand block -->
-<div>
-<div class="flex justify-center gap-3 sm:justify-start items-center">
-<div class="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">speed</span>
-</div>
-<span class="text-3xl font-black italic text-orange-500 uppercase font-['Space_Grotesk'] tracking-tighter">Klaxo</span>
-</div>
-<p class="text-zinc-400 mt-6 max-w-md text-center sm:max-w-xs sm:text-left leading-relaxed">Defining the next generation of premium car rentals and travel experiences across Europe. A backlink blog by <a href="https://www.klaxo.eu/" class="text-orange-400 hover:underline">klaxo.eu</a>.</p>
-<ul class="mt-8 flex justify-center gap-4 sm:justify-start">
-<li>
-<a href="https://www.klaxo.eu/contact" aria-label="Share Klaxo" class="w-10 h-10 rounded bg-zinc-900 flex items-center justify-center text-white hover:bg-orange-500 transition-colors">
-<span class="material-symbols-outlined text-base">share</span>
-</a>
-</li>
-<li>
-<a href="mailto:info@klaxo.eu" aria-label="Email Klaxo" class="w-10 h-10 rounded bg-zinc-900 flex items-center justify-center text-white hover:bg-orange-500 transition-colors">
-<span class="material-symbols-outlined text-base">mail</span>
-</a>
-</li>
-<li>
-<a href="https://www.klaxo.eu/#newsletter" aria-label="Newsletter" class="w-10 h-10 rounded bg-zinc-900 flex items-center justify-center text-white hover:bg-orange-500 transition-colors">
-<span class="material-symbols-outlined text-base">notifications</span>
-</a>
-</li>
-<li>
-<a href="https://www.klaxo.eu/" aria-label="Klaxo Website" class="w-10 h-10 rounded bg-zinc-900 flex items-center justify-center text-white hover:bg-orange-500 transition-colors">
-<span class="material-symbols-outlined text-base">language</span>
-</a>
-</li>
-</ul>
-</div>
-
-<!-- Right 4-column grid -->
-<div class="grid grid-cols-2 gap-6 sm:gap-8 md:grid-cols-4 lg:col-span-2 font-['Space_Grotesk'] text-sm tracking-wide">
-<div class="text-center sm:text-left">
-<p class="text-white font-bold uppercase tracking-widest text-sm mb-6">Navigation</p>
-<ul class="space-y-4">
-<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="https://www.klaxo.eu/#rental">Rent a Car</a></li>
-<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="https://www.klaxo.eu/packages">Destinations</a></li>
-<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="https://www.klaxo.eu/#fleet">Fleet Guide</a></li>
-<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="travel-blog.html">Travel Blog</a></li>
-</ul>
-</div>
-
-<div class="text-center sm:text-left">
-<p class="text-white font-bold uppercase tracking-widest text-sm mb-6">Travel Tips</p>
-<ul class="space-y-4">
-<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="index.html">Coastal Drives</a></li>
-<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="https://www.klaxo.eu/packages">Alpine Routes</a></li>
-<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="https://www.klaxo.eu/packages">City Escapes</a></li>
-<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="https://www.klaxo.eu/#rental">Rental Tips</a></li>
-</ul>
-</div>
-
-<div class="text-center sm:text-left">
-<p class="text-white font-bold uppercase tracking-widest text-sm mb-6">Support</p>
-<ul class="space-y-4">
-<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="https://www.klaxo.eu/privacy">Privacy Policy</a></li>
-<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="https://www.klaxo.eu/terms">Terms of Service</a></li>
-<li><a class="text-zinc-500 hover:text-orange-400 transition-colors" href="https://www.klaxo.eu/contact">Help Center</a></li>
-<li>
-<a href="https://www.klaxo.eu/#newsletter" class="group flex justify-center sm:justify-start items-center gap-2">
-<span class="text-zinc-500 group-hover:text-orange-400 transition-colors">Live Updates</span>
-<span class="relative flex h-2 w-2">
-<span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-500 opacity-75"></span>
-<span class="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
+<div class="lg:pr-6">
+<a href="index.html" class="group inline-flex items-center gap-3" aria-label="Klaxo Travel Tips home">
+<span class="w-11 h-11 rounded-xl bg-orange-500 flex items-center justify-center shrink-0 transition-transform group-hover:rotate-6"><span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">speed</span></span>
+<span class="flex flex-col leading-none">
+<span class="text-3xl font-black italic uppercase text-orange-500 font-['Space_Grotesk'] tracking-tighter">Klaxo</span>
+<span class="mt-1 text-[10px] font-bold uppercase tracking-[0.35em] text-zinc-500">Travel Tips</span>
 </span>
 </a>
-</li>
+<p class="mt-6 max-w-md text-sm sm:text-base leading-relaxed text-zinc-400">Defining the next generation of premium car rentals and travel experiences across Europe. An editorial companion to <a href="https://www.klaxo.eu/" class="text-orange-400 underline-offset-2 hover:text-orange-300 hover:underline">klaxo.eu</a>.</p>
+<div class="mt-8">
+<p class="mb-4 text-[11px] font-bold uppercase tracking-[0.25em] text-zinc-500">Follow the journey</p>
+<ul class="flex flex-wrap gap-3">
+<li><a href="https://www.instagram.com/klaxo_rentcar_daytours?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" aria-label="Follow Klaxo on Instagram" class="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-800 text-zinc-400 transition-colors hover:border-orange-500 hover:bg-orange-500 hover:text-white"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg><span class="sr-only">Instagram</span></a></li>
+<li><a href="https://www.facebook.com/profile.php?id=100090441336282" target="_blank" rel="noopener noreferrer" aria-label="Follow Klaxo on Facebook" class="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-800 text-zinc-400 transition-colors hover:border-orange-500 hover:bg-orange-500 hover:text-white"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><span class="sr-only">Facebook</span></a></li>
+<li><a href="https://www.linkedin.com/company/klaxo-gmbh/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="Follow Klaxo on LinkedIn" class="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-800 text-zinc-400 transition-colors hover:border-orange-500 hover:bg-orange-500 hover:text-white"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg><span class="sr-only">LinkedIn</span></a></li>
+<li><a href="mailto:info@klaxo.eu" aria-label="Email Klaxo" class="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-800 text-zinc-400 transition-colors hover:border-orange-500 hover:bg-orange-500 hover:text-white"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span class="sr-only">Email</span></a></li>
+<li><a href="https://www.klaxo.eu/" target="_blank" rel="noopener noreferrer" aria-label="Visit klaxo.eu" class="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-800 text-zinc-400 transition-colors hover:border-orange-500 hover:bg-orange-500 hover:text-white"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg><span class="sr-only">Website</span></a></li>
 </ul>
 </div>
-
-<div class="text-center sm:text-left">
-<p class="text-white font-bold uppercase tracking-widest text-sm mb-6">Contact</p>
+</div>
+<!-- Link columns -->
+<div class="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-2 font-['Space_Grotesk'] text-sm">
+<div>
+<p class="mb-6 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-white"><span class="h-2 w-2 rotate-45 rounded-sm bg-orange-500"></span>Navigation</p>
 <ul class="space-y-4">
-<li>
-<a href="mailto:info@klaxo.eu" class="flex items-center justify-center sm:justify-start gap-2">
-<span class="material-symbols-outlined text-orange-500 text-base shrink-0">mail</span>
-<span class="text-zinc-500 hover:text-orange-400 transition-colors">info@klaxo.eu</span>
-</a>
-</li>
-<li>
-<a href="tel:+498912345678" class="flex items-center justify-center sm:justify-start gap-2">
-<span class="material-symbols-outlined text-orange-500 text-base shrink-0">call</span>
-<span class="text-zinc-500 hover:text-orange-400 transition-colors">+49 89 1234 5678</span>
-</a>
-</li>
-<li>
-<div class="flex items-start justify-center sm:justify-start gap-2"><span class="material-symbols-outlined text-orange-500 text-base shrink-0">location_on</span><address class="text-zinc-500 not-italic flex-1">Munich, Bavaria, Germany</address></div>
-</li>
+<li><a class="group flex items-center gap-2 text-zinc-500 transition-colors hover:text-orange-400" href="https://www.klaxo.eu/#rental"><span class="h-px w-0 bg-orange-500 transition-all duration-300 group-hover:w-4"></span>Rent a Car</a></li>
+<li><a class="group flex items-center gap-2 text-zinc-500 transition-colors hover:text-orange-400" href="https://www.klaxo.eu/packages"><span class="h-px w-0 bg-orange-500 transition-all duration-300 group-hover:w-4"></span>Destinations</a></li>
+<li><a class="group flex items-center gap-2 text-zinc-500 transition-colors hover:text-orange-400" href="https://www.klaxo.eu/#fleet"><span class="h-px w-0 bg-orange-500 transition-all duration-300 group-hover:w-4"></span>Fleet Guide</a></li>
+<li><a class="group flex items-center gap-2 text-zinc-500 transition-colors hover:text-orange-400" href="travel-blog.html"><span class="h-px w-0 bg-orange-500 transition-all duration-300 group-hover:w-4"></span>Travel Blog</a></li>
+<li><a class="group flex items-center gap-2 text-zinc-500 transition-colors hover:text-orange-400" href="about.html"><span class="h-px w-0 bg-orange-500 transition-all duration-300 group-hover:w-4"></span>About</a></li>
+</ul>
+</div>
+<div>
+<p class="mb-6 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-white"><span class="h-2 w-2 rotate-45 rounded-sm bg-orange-500"></span>Travel Tips</p>
+<ul class="space-y-4">
+<li><a class="group flex items-center gap-2 text-zinc-500 transition-colors hover:text-orange-400" href="coastal-drives.html"><span class="h-px w-0 bg-orange-500 transition-all duration-300 group-hover:w-4"></span>Coastal Drives</a></li>
+<li><a class="group flex items-center gap-2 text-zinc-500 transition-colors hover:text-orange-400" href="day-trips-from-munich.html"><span class="h-px w-0 bg-orange-500 transition-all duration-300 group-hover:w-4"></span>Day Trips</a></li>
+<li><a class="group flex items-center gap-2 text-zinc-500 transition-colors hover:text-orange-400" href="alpine-transfers.html"><span class="h-px w-0 bg-orange-500 transition-all duration-300 group-hover:w-4"></span>Alpine Transfers</a></li>
+<li><a class="group flex items-center gap-2 text-zinc-500 transition-colors hover:text-orange-400" href="v-class-group-travel.html"><span class="h-px w-0 bg-orange-500 transition-all duration-300 group-hover:w-4"></span>Group Travel</a></li>
+<li><a class="group flex items-center gap-2 text-zinc-500 transition-colors hover:text-orange-400" href="sustainable-mobility.html"><span class="h-px w-0 bg-orange-500 transition-all duration-300 group-hover:w-4"></span>Sustainable Mobility</a></li>
+</ul>
+</div>
+<div>
+<p class="mb-6 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-white"><span class="h-2 w-2 rotate-45 rounded-sm bg-orange-500"></span>Support</p>
+<ul class="space-y-4">
+<li><a class="group flex items-center gap-2 text-zinc-500 transition-colors hover:text-orange-400" href="https://www.klaxo.eu/privacy"><span class="h-px w-0 bg-orange-500 transition-all duration-300 group-hover:w-4"></span>Privacy Policy</a></li>
+<li><a class="group flex items-center gap-2 text-zinc-500 transition-colors hover:text-orange-400" href="https://www.klaxo.eu/terms"><span class="h-px w-0 bg-orange-500 transition-all duration-300 group-hover:w-4"></span>Terms of Service</a></li>
+<li><a class="group flex items-center gap-2 text-zinc-500 transition-colors hover:text-orange-400" href="https://www.klaxo.eu/contact"><span class="h-px w-0 bg-orange-500 transition-all duration-300 group-hover:w-4"></span>Help Center</a></li>
+<li><a class="group flex items-center gap-2 text-zinc-500 transition-colors hover:text-orange-400" href="https://www.klaxo.eu/#newsletter"><span class="h-px w-0 bg-orange-500 transition-all duration-300 group-hover:w-4"></span>Newsletter<span class="relative ml-1 flex h-2 w-2"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-500 opacity-75"></span><span class="relative inline-flex h-2 w-2 rounded-full bg-orange-500"></span></span></a></li>
+<li><a class="group flex items-center gap-2 text-zinc-500 transition-colors hover:text-orange-400" href="mailto:info@klaxo.eu"><span class="material-symbols-outlined text-base text-orange-500">mail</span>info@klaxo.eu</a></li>
 </ul>
 </div>
 </div>
 </div>
-
-<!-- Bottom bar -->
-<div class="mt-12 border-t border-zinc-900 pt-6">
-<div class="text-center sm:flex sm:justify-between sm:text-left">
-<p class="text-zinc-500 text-sm italic font-['Space_Grotesk']">Driven by Adventure.</p>
-<p class="text-zinc-500 text-sm mt-4 sm:mt-0 font-['Space_Grotesk']">&copy; 2024 Klaxo Car Rentals. All rights reserved.</p>
-</div>
+<div class="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+<div class="flex flex-col items-center gap-3 border-t border-zinc-900 py-6 sm:flex-row sm:justify-between">
+<p class="flex items-center gap-2 text-sm font-semibold italic uppercase tracking-wide text-zinc-400 font-['Space_Grotesk']"><span class="inline-block h-0.5 w-6 bg-orange-500"></span>Driven by Adventure.</p>
+<p class="text-sm text-zinc-500 font-['Space_Grotesk']">&copy; 2026 Klaxo Car Rentals. All rights reserved.</p>
 </div>
 </div>
 </footer>
@@ -353,4 +313,27 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="js/animations.js" defer></script>
+<script src="js/google-reviews.js" defer></script>
+<script src="js/klaxo-lang.js" defer></script>
+<script src="js/klaxo-wishlist.js" defer></script>
+<script>
+  (function () {
+    var btn = document.getElementById('mobile-menu-btn');
+    var menu = document.getElementById('mobile-menu');
+    var icon = document.getElementById('mobile-menu-icon');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function () {
+      var open = menu.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (icon) icon.textContent = open ? 'close' : 'menu';
+    });
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+        if (icon) icon.textContent = 'menu';
+      });
+    });
+  })();
+</script>
 </body></html>

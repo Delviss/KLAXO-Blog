@@ -1,0 +1,57 @@
+---
+layout: default
+---
+<section class="relative h-[420px] sm:h-[520px] md:h-[640px] lg:h-[716px] w-full overflow-hidden">
+{% if page.hero_image %}
+<img class="w-full h-full object-cover" src="{{ page.hero_image }}" alt="{{ page.hero_alt | default: page.title }}"/>
+{% else %}
+<div class="w-full h-full bg-gradient-to-br from-zinc-800 via-zinc-900 to-black"></div>
+{% endif %}
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex items-end pb-8 sm:pb-12 md:pb-16 px-4 sm:px-6 md:px-margin-edge">
+<div class="max-w-container-max mx-auto w-full">
+{% if page.category %}<div class="inline-block bg-primary-container text-white px-3 py-1 text-label-bold font-label-bold uppercase mb-3 sm:mb-4">{{ page.category }}</div>{% endif %}
+<h1 class="text-white font-display-xl text-3xl sm:text-4xl md:text-5xl lg:text-display-xl leading-tight max-w-4xl animate-reveal">{{ page.title }}</h1>
+<div class="flex flex-wrap items-center gap-3 sm:gap-6 mt-4 sm:mt-8 text-white/90">
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary-container text-xl sm:text-2xl">calendar_today</span><span class="font-label-bold text-label-bold uppercase">{{ page.date | date: "%B %-d, %Y" }}</span></div>
+{% if page.read_time %}<div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary-container text-xl sm:text-2xl">speed</span><span class="font-label-bold text-label-bold uppercase">{{ page.read_time }}</span></div>{% endif %}
+</div>
+</div>
+</div>
+</section>
+
+<main class="max-w-container-max mx-auto px-4 sm:px-6 md:px-margin-edge py-12 sm:py-16 md:py-24 lg:py-section-gap grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-gutter">
+<article class="lg:col-span-8 space-y-10 sm:space-y-12">
+{% if page.summary %}<p class="font-body-lg text-base sm:text-body-lg text-on-surface-variant leading-relaxed italic border-l-4 border-primary-container pl-4">{{ page.summary }}</p>{% endif %}
+<div class="prose max-w-none">
+{{ content }}
+</div>
+
+<div class="border-t border-outline-variant pt-10 sm:pt-12 mt-12 sm:mt-16">
+<div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 sm:gap-6 p-5 sm:p-6 md:p-8 bg-surface-container-low rounded-xl">
+<div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-primary-container border-2 border-primary-container shrink-0 flex items-center justify-center" aria-label="Klaxo logo"><span class="material-symbols-outlined text-white text-4xl sm:text-5xl" style="font-variation-settings: 'FILL' 1;">speed</span></div>
+<div>
+<h4 class="font-headline-md text-xl sm:text-2xl md:text-headline-md">{{ page.author | default: "Daniel (Klaxo Team)" }}</h4>
+<p class="text-on-surface-variant font-body-md mb-2 text-sm sm:text-base">Klaxo GmbH &middot; Munich</p>
+<p class="text-on-surface-variant/80 text-sm">Daniel is part of the Klaxo Team and writes from first-hand experience driving every route in the Klaxo fleet — Toyota Corolla Hybrid, Mercedes GLE, VW Tiguan, Mercedes Vito, V-Class, Tesla Model 3 and Mercedes S-Class.</p>
+</div>
+</div>
+</div>
+</article>
+
+<aside class="lg:col-span-4 space-y-gutter">
+<div class="lg:sticky lg:top-28 space-y-6 lg:space-y-gutter">
+<div class="bg-primary-container p-6 sm:p-8 rounded-xl text-white relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="font-headline-md text-xl sm:text-2xl md:text-headline-md mb-3 sm:mb-4 leading-tight">Rent a Premium Car</h4>
+<p class="mb-5 sm:mb-6 text-white/90 text-sm sm:text-base">Explore Bavaria your way. Book a Klaxo vehicle — from hybrids to the Mercedes V-Class.</p>
+<a href="https://www.klaxo.eu/#rental" class="w-full bg-zinc-900 text-white py-3 rounded font-label-bold text-label-bold uppercase btn-premium-transition block text-center">Rent Now</a>
+</div>
+<div class="absolute -right-8 -bottom-8 opacity-20 transform rotate-12 pointer-events-none"><span class="material-symbols-outlined text-[120px] sm:text-[160px]" style="font-variation-settings: 'FILL' 1;">directions_car</span></div>
+</div>
+<div class="bg-white border border-outline-variant p-5 sm:p-6 rounded-xl shadow-sm">
+<h3 class="font-headline-md text-lg sm:text-xl mb-4">More from the Journal</h3>
+<a href="blog.html" class="text-primary font-label-bold text-label-bold uppercase inline-flex items-center gap-2">All articles <span class="material-symbols-outlined text-base">arrow_forward</span></a>
+</div>
+</div>
+</aside>
+</main>
