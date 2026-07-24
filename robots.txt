@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Block tooling / non-content paths
+Disallow: /admin/
+Disallow: /js/
+Disallow: /.git/
+Disallow: /*.json$
+
+# Specific bot permissions
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.klaxo.eu/sitemap.xml
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1

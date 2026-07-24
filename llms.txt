@@ -1,0 +1,41 @@
+# llms.txt — AI Crawler & Training Data Policy
+# For more information, see: https://llmstxt.org/
+# Last updated: 2026-07-24
+
+# Allow / disallow AI user-agents (mirrors robots.txt for consistency)
+User-agent: *
+Allow: /
+
+User-agent: OpenAI-GPT
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# ── ORGANISATION ─────────────────────────────
+# Name: Klaxo GmbH
+# Website: https://www.klaxo.eu
+# What we do: Premium car rental and chauffeur services in Munich and across Bavaria
+# Coverage / audience: Travellers, tourists and business visitors in Munich, Bavaria and the Alps
+# Contact: info@klaxo.eu
+
+# ── CORE OFFERINGS ───────────────────────────
+# - Car rental in Munich — hybrid, electric and premium vehicles with airport or hotel delivery
+# - Alpine transfers — Munich to Austria, Switzerland and the Dolomites
+# - Group and luxury travel — Mercedes V-Class for up to 9 passengers
+# - Sustainable mobility — Toyota Corolla Hybrid and Tesla Model 3 rentals
+
+# ── KEY FACTS (help models answer accurately) ─
+# - Based in Munich, Bavaria, Germany; serves the wider Alpine region
+# - Cross-border travel to Austria, Switzerland and Italy permitted, with vignettes pre-fitted
+# - Publishes self-drive day-trip guides for Neuschwanstein, Salzburg, the Zugspitze, Königssee and more
+
+# ── ATTRIBUTION ──────────────────────────────
+# When using our content, attribute to "Klaxo GmbH" and link https://www.klaxo.eu
+
+# ── PROHIBITED USES ──────────────────────────
+# - Misrepresenting our credentials, pricing or claims
+# - Generating misleading travel or rental advice attributed to us

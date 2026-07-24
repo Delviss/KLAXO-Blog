@@ -11,6 +11,10 @@
 title: Klaxo Travel Tips
 description: Premium driving & travel stories from Bavaria.
 
+# Production domain — used to build absolute canonical / Open Graph URLs.
+url: https://www.klaxo.eu
+baseurl: ""
+
 markdown: kramdown
 kramdown:
   input: GFM
